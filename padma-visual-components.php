@@ -20,6 +20,9 @@ function register_visual_components_block() {
 	if (!class_exists('PadmaBlockAPI') )
 		return false;
 
+	if(!class_exists('Shortcodes_Ultimate'))
+			return false;
+
 	/**
 	 *
 	 * Register components as blocks
