@@ -51,32 +51,6 @@ class PadmaVisualComponentsBlockHeadingOptions extends PadmaBlockOptionsAPI {
 				),
 				'tooltip' => 'Choose style for this heading'
 			),
-			'align' => array(
-				'name' => 'align',
-				'label' => 'Align',
-				'type' => 'select',
-				'default' => 'center',
-				'options' => array(
-					'center' => 'Center',
-					'left'	=> 'Left',
-					'right'	=> 'Right',
-				),
-				'tooltip' => 'Heading text alignment'
-			),
-			'margin' => array(
-				'name' => 'margin',
-				'label' => 'Margin',
-				'type' => 'integer',
-				'tooltip' => 'Bottom margin (pixels)',
-				'default' => 20
-			),
-			'size' => array(
-				'name' => 'size',
-				'label' => 'Size',
-				'type' => 'integer',
-				'tooltip' => 'Height of the heading in pixels',
-				'default' => 20
-			),
 		)
 	);
 
@@ -103,7 +77,16 @@ class PadmaVisualComponentsBlockHeading extends PadmaBlockAPI {
 	}
 	
 	public function setup_elements() {
-	
+		$this->register_block_element(array(
+			'id' => 'heading',
+			'name' => 'heading',
+			'selector' => '.su-heading',
+		));
+		$this->register_block_element(array(
+			'id' => 'su-heading-inner',
+			'name' => 'Text',
+			'selector' => '.su-heading-inner',
+		));
 	}
 
 
@@ -118,24 +101,17 @@ class PadmaVisualComponentsBlockHeading extends PadmaBlockAPI {
 	public function content($block) {
 
 		$style = parent::get_setting($block, 'style');
-		$size = parent::get_setting($block, 'size');
-		$align = parent::get_setting($block, 'align');
-		$margin = parent::get_setting($block, 'margin');
 		$heading_text = parent::get_setting($block, 'heading-text');
 
 		if(!$style)
 			$style = 'default';
 
-		if(!$size || $size < 7 || $size > 48)
-			$size = 13;
+		$html = do_shortcode('[su_heading style="'.$style.'"]'.$heading_text.'[/su_heading]');
 
-		if(!$align)
-			$align = 'center';
+		// remove inline CSS for color
+		$html = preg_replace('(style=("|\Z)(.*?)("|\Z))', '', $html);
 
-		if(!$margin || $margin < 0 || $margin > 200)
-			$size = 20;
-
-		echo do_shortcode('[su_heading style="'.$style.'" size="'.$size.'" align="'.$align.'" margin="'.$margin.'"]'.$heading_text.'[/su_heading]');
+		echo $html;
 
 	}
 

@@ -45,7 +45,11 @@ class PadmaVisualComponentsBlockSpacer extends PadmaBlockAPI {
 	}
 	
 	public function setup_elements() {
-	
+		$this->register_block_element(array(
+			'id' => 'spacer',
+			'name' => 'spacer',
+			'selector' => 'div.su-spacer',
+		));
 	}
 
 

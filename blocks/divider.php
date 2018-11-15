@@ -42,18 +42,6 @@ class PadmaVisualComponentsBlockDividerOptions extends PadmaBlockOptionsAPI {
 				),
 				'tooltip' => 'Choose style for this divider'
 			),
-			'divider-color' => array(
-				'name' => 'divider-color',
-				'label' => 'Divider color',
-				'type' => 'colorpicker',
-				'tooltip' => 'Pick the color for divider'
-			),
-			'link-color' => array(
-				'name' => 'link-color',
-				'label' => 'Link color',
-				'type' => 'colorpicker',
-				'tooltip' => 'Pick the color for TOP link'
-			),
 			'margin' => array(
 				'name' => 'margin',
 				'label' => 'Margin',
@@ -94,7 +82,17 @@ class PadmaVisualComponentsBlockDivider extends PadmaBlockAPI {
 	}
 	
 	public function setup_elements() {
-	
+
+		$this->register_block_element(array(
+			'id' => 'divider',
+			'name' => 'divider',
+			'selector' => '.su-divider',
+		));
+		$this->register_block_element(array(
+			'id' => 'link',
+			'name' => 'link',
+			'selector' => '.su-divider a',
+		));
 	}
 
 
@@ -111,8 +109,6 @@ class PadmaVisualComponentsBlockDivider extends PadmaBlockAPI {
 		$top = parent::get_setting($block, 'top');
 		$text = parent::get_setting($block, 'text');
 		$style = parent::get_setting($block, 'style');
-		$divider_color = parent::get_setting($block, 'divider-color');
-		$link_color = parent::get_setting($block, 'link-color');
 		$size = parent::get_setting($block, 'size');
 		$margin = parent::get_setting($block, 'margin');
 
@@ -125,11 +121,6 @@ class PadmaVisualComponentsBlockDivider extends PadmaBlockAPI {
 		if(!$style)
 			$style = 'default';
 
-		if(!$divider_color)
-			$divider_color = '#999999';
-
-		if(!$link_color)
-			$link_color = '#999999';
 
 		if(!$size || $size < 0 || $size > 40)
 			$size = 3;
@@ -137,7 +128,12 @@ class PadmaVisualComponentsBlockDivider extends PadmaBlockAPI {
 		if(!$margin || $margin < 0 || $margin > 200)
 			$margin = 15;
 
-		echo do_shortcode('[su_divider top="'.$top.'" text="'.$text.'" style="'.$style.'" divider_color="'.$divider_color.'" link_color="'.$link_color.'" size="'.$size.'" margin="'.$margin.'"]');
+		$html = do_shortcode('[su_divider top="'.$top.'" text="'.$text.'" style="'.$style.'" divider_color="'.$divider_color.'" size="'.$size.'" margin="'.$margin.'"]');
+
+		// remove inline CSS for color
+		$html = preg_replace('(style=("|\Z)(.*?)("|\Z))', '', $html);
+
+		echo $html;
 
 	}
 
