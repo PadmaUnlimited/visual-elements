@@ -32,6 +32,7 @@ function register_visual_components_block() {
 	require_once 'blocks/button.php';
 	require_once 'blocks/divider.php';
 	require_once 'blocks/heading.php';
+	require_once 'blocks/label.php';
 	require_once 'blocks/spacer.php';
 	require_once 'blocks/tabs.php';
 
@@ -41,6 +42,8 @@ function register_visual_components_block() {
 	padma_register_block('PadmaVisualComponentsBlockDivider', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
 	
 	padma_register_block('PadmaVisualComponentsBlockHeading', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
+	
+	padma_register_block('PadmaVisualComponentsBlockLabel', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
 	
 	padma_register_block('PadmaVisualComponentsBlockSpacer', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
 
