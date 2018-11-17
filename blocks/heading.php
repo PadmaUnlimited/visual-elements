@@ -1,6 +1,6 @@
 <?php
 
-class PadmaVisualComponentsBlockHeadingOptions extends PadmaBlockOptionsAPI {
+class PadmaVisualElementsBlockHeadingOptions extends PadmaBlockOptionsAPI {
 	
 	public $tabs = array(
 		'general' 			=> 'General',
@@ -62,11 +62,11 @@ class PadmaVisualComponentsBlockHeadingOptions extends PadmaBlockOptionsAPI {
 	
 }
 
-class PadmaVisualComponentsBlockHeading extends PadmaBlockAPI {
+class PadmaVisualElementsBlockHeading extends PadmaBlockAPI {
 	
-	public $id 				= 'visual-components-heading';	
+	public $id 				= 'visual-elements-heading';	
 	public $name 			= 'Heading';
-	public $options_class 	= 'PadmaVisualComponentsBlockHeadingOptions';	
+	public $options_class 	= 'PadmaVisualElementsBlockHeadingOptions';	
 	public $description 	= 'Allows you to create styled headings with customisable size and margin.';
 	
 	public function init() {

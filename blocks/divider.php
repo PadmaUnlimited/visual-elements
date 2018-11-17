@@ -1,6 +1,6 @@
 <?php
 
-class PadmaVisualComponentsBlockDividerOptions extends PadmaBlockOptionsAPI {
+class PadmaVisualElementsBlockDividerOptions extends PadmaBlockOptionsAPI {
 	
 	public $tabs = array(
 		'general' 			=> 'General',
@@ -67,11 +67,11 @@ class PadmaVisualComponentsBlockDividerOptions extends PadmaBlockOptionsAPI {
 	
 }
 
-class PadmaVisualComponentsBlockDivider extends PadmaBlockAPI {
+class PadmaVisualElementsBlockDivider extends PadmaBlockAPI {
 	
-	public $id 				= 'visual-components-divider';	
+	public $id 				= 'visual-elements-divider';	
 	public $name 			= 'Divider';
-	public $options_class 	= 'PadmaVisualComponentsBlockDividerOptions';	
+	public $options_class 	= 'PadmaVisualElementsBlockDividerOptions';	
 	public $description 	= 'Allows you to divide page content with styled divider. You can customize colours, hide “Got to top” link and adjust divider size.';
 	
 	public function init() {

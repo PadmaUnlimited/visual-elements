@@ -1,6 +1,6 @@
 <?php
 
-class PadmaVisualComponentsBlockSpacerOptions extends PadmaBlockOptionsAPI {
+class PadmaVisualElementsBlockSpacerOptions extends PadmaBlockOptionsAPI {
 	
 	public $tabs = array(
 		'general' 			=> 'General',
@@ -30,11 +30,11 @@ class PadmaVisualComponentsBlockSpacerOptions extends PadmaBlockOptionsAPI {
 	
 }
 
-class PadmaVisualComponentsBlockSpacer extends PadmaBlockAPI {
+class PadmaVisualElementsBlockSpacer extends PadmaBlockAPI {
 	
-	public $id 				= 'visual-components-spacer';	
+	public $id 				= 'visual-elements-spacer';	
 	public $name 			= 'Spacer';
-	public $options_class 	= 'PadmaVisualComponentsBlockSpacerOptions';	
+	public $options_class 	= 'PadmaVisualElementsBlockSpacerOptions';	
 	public $description 	= 'Will help you to create an empty space between elements on a page.';
 	
 	public function init() {

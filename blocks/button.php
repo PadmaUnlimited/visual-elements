@@ -1,6 +1,6 @@
 <?php
 
-class PadmaVisualComponentsBlockButtonOptions extends PadmaBlockOptionsAPI {
+class PadmaVisualElementsBlockButtonOptions extends PadmaBlockOptionsAPI {
 	
 	public $tabs = array(
 		'general' 			=> 'General',
@@ -88,11 +88,11 @@ class PadmaVisualComponentsBlockButtonOptions extends PadmaBlockOptionsAPI {
 	
 }
 
-class PadmaVisualComponentsBlockButton extends PadmaBlockAPI {
+class PadmaVisualElementsBlockButton extends PadmaBlockAPI {
 	
-	public $id 				= 'visual-components-button';	
+	public $id 				= 'visual-elements-button';	
 	public $name 			= 'Button';
-	public $options_class 	= 'PadmaVisualComponentsBlockButtonOptions';	
+	public $options_class 	= 'PadmaVisualElementsBlockButtonOptions';	
 	public $description 	= 'Allows you to divide page content with styled button. You can customize colours, hide “Got to top” link and adjust button size.';
 	
 	public function init() {
