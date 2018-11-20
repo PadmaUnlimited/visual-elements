@@ -49,6 +49,7 @@ class PadmaVisualComponentsBlockLabel extends PadmaBlockAPI {
 	public $name 			= 'Label';
 	public $options_class 	= 'PadmaVisualComponentsBlockLabelOptions';	
 	public $description 	= 'Will help you to create colourful labels. You can choose among 6 various label colours.';
+	public $categories 		= array('content');
 	
 	public function init() {
 
