@@ -68,6 +68,7 @@ class PadmaVisualElementsBlockHeading extends PadmaBlockAPI {
 	public $name 			= 'Heading';
 	public $options_class 	= 'PadmaVisualElementsBlockHeadingOptions';	
 	public $description 	= 'Allows you to create styled headings with customisable size and margin.';
+	public $categories 		= array('content');
 	
 	public function init() {
 

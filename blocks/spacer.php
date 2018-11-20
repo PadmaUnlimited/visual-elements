@@ -36,6 +36,7 @@ class PadmaVisualElementsBlockSpacer extends PadmaBlockAPI {
 	public $name 			= 'Spacer';
 	public $options_class 	= 'PadmaVisualElementsBlockSpacerOptions';	
 	public $description 	= 'Will help you to create an empty space between elements on a page.';
+	public $categories 		= array('content');
 	
 	public function init() {
 

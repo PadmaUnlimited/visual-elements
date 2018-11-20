@@ -73,6 +73,7 @@ class PadmaVisualElementsBlockDivider extends PadmaBlockAPI {
 	public $name 			= 'Divider';
 	public $options_class 	= 'PadmaVisualElementsBlockDividerOptions';	
 	public $description 	= 'Allows you to divide page content with styled divider. You can customize colours, hide “Got to top” link and adjust divider size.';
+	public $categories 		= array('content');
 	
 	public function init() {
 

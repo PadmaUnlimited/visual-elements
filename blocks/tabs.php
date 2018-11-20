@@ -36,6 +36,7 @@ class PadmaVisualElementsBlockTabs extends PadmaBlockAPI {
 	public $name 			= 'Tabs';
 	public $options_class 	= 'PadmaVisualElementsBlockTabsOptions';	
 	public $description 	= 'Will help you to create an empty space between elements on a page.';
+	public $categories 		= array('box','content');
 	
 	public function init() {
 

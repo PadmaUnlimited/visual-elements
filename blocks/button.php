@@ -94,6 +94,7 @@ class PadmaVisualElementsBlockButton extends PadmaBlockAPI {
 	public $name 			= 'Button';
 	public $options_class 	= 'PadmaVisualElementsBlockButtonOptions';	
 	public $description 	= 'Allows you to divide page content with styled button. You can customize colours, hide “Got to top” link and adjust button size.';
+	public $categories 		= array('content');
 	
 	public function init() {
 
