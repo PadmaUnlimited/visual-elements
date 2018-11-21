@@ -16,7 +16,6 @@ function register_visual_elements_block() {
     if ( !class_exists('Padma') )
 		return;
 
-
 	if (!class_exists('PadmaBlockAPI') )
 		return false;
 
@@ -33,6 +32,7 @@ function register_visual_elements_block() {
 	require_once 'blocks/divider.php';
 	require_once 'blocks/heading.php';
 	require_once 'blocks/label.php';
+	require_once 'blocks/gmap.php';
 	require_once 'blocks/spacer.php';
 	require_once 'blocks/tabs.php';
 
@@ -44,10 +44,13 @@ function register_visual_elements_block() {
 	padma_register_block('PadmaVisualElementsBlockHeading', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
 	
 	padma_register_block('PadmaVisualElementsBlockLabel', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
+
+	padma_register_block('PadmaVisualElementsBlockGmap', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
 	
 	padma_register_block('PadmaVisualElementsBlockSpacer', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
 
 	padma_register_block('PadmaVisualElementsBlockTabs', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
+	
 
 }
 

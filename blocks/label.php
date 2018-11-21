@@ -1,6 +1,6 @@
 <?php
 
-class PadmaVisualComponentsBlockLabelOptions extends PadmaBlockOptionsAPI {
+class PadmaVisualElementsBlockLabelOptions extends PadmaBlockOptionsAPI {
 	
 	public $tabs = array(
 		'general' 			=> 'General',
@@ -43,11 +43,11 @@ class PadmaVisualComponentsBlockLabelOptions extends PadmaBlockOptionsAPI {
 	
 }
 
-class PadmaVisualComponentsBlockLabel extends PadmaBlockAPI {
+class PadmaVisualElementsBlockLabel extends PadmaBlockAPI {
 	
-	public $id 				= 'visual-components-label';	
+	public $id 				= 'visual-elements-label';	
 	public $name 			= 'Label';
-	public $options_class 	= 'PadmaVisualComponentsBlockLabelOptions';	
+	public $options_class 	= 'PadmaVisualElementsBlockLabelOptions';	
 	public $description 	= 'Will help you to create colourful labels. You can choose among 6 various label colours.';
 	public $categories 		= array('content');
 	
