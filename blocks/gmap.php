@@ -29,7 +29,7 @@ class PadmaVisualElementsBlockGmapOptions extends PadmaBlockOptionsAPI {
 					'self'		=> 'Yes',
 					'blank'		=> 'No',
 				),
-				'tooltip' => 'Button link target'
+				'tooltip' => 'Ignore width and height parameters and make map responsive'
 			),
 			
 		)
