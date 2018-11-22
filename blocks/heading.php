@@ -17,6 +17,7 @@ class PadmaVisualElementsBlockHeadingOptions extends PadmaBlockOptionsAPI {
 				'type' => 'text',
 				'label' => 'Heading text'
 			),
+			/*
 			'style' => array(
 				'name' => 'style',
 				'label' => 'Style',
@@ -51,6 +52,7 @@ class PadmaVisualElementsBlockHeadingOptions extends PadmaBlockOptionsAPI {
 				),
 				'tooltip' => 'Choose style for this heading'
 			),
+			*/
 		)
 	);
 
