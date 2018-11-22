@@ -29,6 +29,7 @@ class PadmaVisualElementsBlockButtonOptions extends PadmaBlockOptionsAPI {
 				),
 				'tooltip' => 'Button link target'
 			),
+			/*
 			'style' => array(
 				'name' => 'style',
 				'label' => 'Style',
@@ -46,7 +47,7 @@ class PadmaVisualElementsBlockButtonOptions extends PadmaBlockOptionsAPI {
 					'3d'		=> '3D',
 				),
 				'tooltip' => 'Button background style preset'
-			),
+			),*/
 			'icon' => array(
 				'name' => 'icon',
 				'label' => 'Icon',
