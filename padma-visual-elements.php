@@ -54,7 +54,7 @@ function register_visual_elements_block() {
 
 
 	// Padma 0.1.1 or higher required
-	if(!version_compare(PADMA_VERSION, '0.1.1', '<')){
+	if(!version_compare(PADMA_VERSION, '0.2.0', '<')){
 
 		padma_register_block('PadmaVisualElementsBlockTabs', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
 		
