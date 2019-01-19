@@ -35,18 +35,18 @@ class PadmaVisualElementsBlockDummyImageOptions extends PadmaBlockOptionsAPI {
 				'options' => array(
 					'any' => 'Any',
 					'abstract'=> 'Abstract',
-					'animals'=> 'animals',
-					'business'=> 'business',
-					'cats '=> 'cats ',
-					'city '=> 'city ',
-					'food '=> 'food ',
-					'nightlife '=> 'nightlife ',
-					'fashion '=> 'fashion ',
-					'people '=> 'people ',
-					'nature '=> 'nature ',
-					'sports  '=> 'sports ',
-					'technics  '=> 'technics',
-					'transport  '=> 'transport'
+					'animals'=> 'Animals',
+					'business'=> 'Business',
+					'cats '=> 'Cats ',
+					'city '=> 'City ',
+					'food '=> 'Food ',
+					'nightlife '=> 'Nightlife ',
+					'fashion '=> 'Fashion ',
+					'people '=> 'People ',
+					'nature '=> 'Nature ',
+					'sports  '=> 'Sports ',
+					'technics  '=> 'Technics',
+					'transport  '=> 'Transport'
 
 				),
 				'tooltip' => 'Select the theme for this image.'
