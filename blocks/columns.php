@@ -12,7 +12,7 @@ class PadmaVisualElementsBlockColumnsOptions extends PadmaBlockOptionsAPI {
 
 	public $inputs = array(
 		'general' => array(
-			'size' => array(
+			/*'size' => array(
 				'name' => 'size',
 				'label' => 'Size',
 				'type' => 'select',
@@ -32,12 +32,72 @@ class PadmaVisualElementsBlockColumnsOptions extends PadmaBlockOptionsAPI {
 					'five-sixth'	=> 'Five sixth 5/6',
 				),
 				'tooltip' => 'Select column width. This width will be calculated depend page width'
-			),
+			),*/
 			'text' => array(
 				'name' => 'text',
 				'type' => 'text',
 				'label' => 'Text'
 			)
+
+			'columns' => array(
+				'type' => 'repeater',
+				'name' => 'tabs',
+				'label' => 'Tabs',
+				'tooltip' => 'Content for your tabs.',
+				'inputs' => array(
+					array(
+						'type' => 'text',
+						'name' => 'title',
+						'label' => 'Title'
+					),
+
+					array(
+						'type' => 'select',
+						'name' => 'disabled',
+						'label' => 'Disabled',
+						'options' => array(
+							'yes' => 'Yes',
+							'no'	=> 'No',
+						),
+						'default' => 'no',
+					),
+					
+					array(
+						'type' => 'text',
+						'name' => 'anchor',
+						'label' => 'Anchor',
+						'tooltip' => 'You can use unique anchor for this tab to access it with hash in page url. For example: use Hello and then navigate to url like http://example.com/page-url#Hello. This tab will be activated and scrolled in.'
+					),
+					
+					array(
+						'type' => 'text',
+						'name' => 'url',
+						'label' => 'Url',
+						'tooltip' => 'Link tab to any webpage. Use full URL to turn the tab title into link.'
+					),
+
+					array(
+						'name' => 'target',
+						'type' => 'select',
+						'label' => 'Target',
+						'default' => 'blank',
+						'options' => array(
+							'self'		=> 'Open in same tab',
+							'blank'		=> 'Open in new tab',
+						),
+						'tooltip' => 'Choose how to open the custom tab link'
+					),
+
+					array(
+						'type' => 'wysiwyg',
+						'name' => 'content',
+						'label' => 'Content',
+						'default' => null
+					)
+				),
+				'sortable' => true,
+				'limit' => 100
+			),
 		)
 	);
 
