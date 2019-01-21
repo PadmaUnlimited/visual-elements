@@ -12,12 +12,6 @@ class PadmaVisualElementsBlockColumnsOptions extends PadmaBlockOptionsAPI {
 
 	public $inputs = array(
 		'general' => array(
-			'rows' => array(
-				'name' => 'rows',
-				'type' => 'text',
-				'label' => 'Rows'
-			),
-
 			'size' => array(
 				'name' => 'size',
 				'label' => 'Size',
