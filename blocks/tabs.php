@@ -230,6 +230,7 @@ class PadmaVisualElementsBlockTabs extends PadmaBlockAPI {
 		else
 			$shortcode = '[su_tabs]';
 		
+		debug($tabs);
 		
 		$index = 1;
 		foreach ($tabs as $tab => $params) {

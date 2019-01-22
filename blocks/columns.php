@@ -12,13 +12,7 @@ class PadmaVisualElementsBlockColumnsOptions extends PadmaBlockOptionsAPI {
 
 	public $inputs = array(
 		'general' => array(
-			'rows' => array(
-				'name' => 'rows',
-				'type' => 'text',
-				'label' => 'Rows'
-			),
-
-			'size' => array(
+			/*'size' => array(
 				'name' => 'size',
 				'label' => 'Size',
 				'type' => 'select',
@@ -38,12 +32,65 @@ class PadmaVisualElementsBlockColumnsOptions extends PadmaBlockOptionsAPI {
 					'five-sixth'	=> 'Five sixth 5/6',
 				),
 				'tooltip' => 'Select column width. This width will be calculated depend page width'
+			),*/
+
+			'columns' => array(
+				'type' => 'repeater',
+				'name' => 'columns',
+				'label' => 'Columns',
+				'tooltip' => 'Content for your columns.',
+				'inputs' => array(
+					array(
+						'name' => 'size',
+						'label' => 'Size',
+						'type' => 'select',
+						'default' => 'one-half',
+						'options' => array(
+							'full-width'	=> 'Full width 1/1',
+							'one-half'		=> 'One half 1/2',
+							'one-third'		=> 'One third 1/3',
+							'two-third'		=> 'Two third 2/3',
+							'one-fourth'	=> 'One fourth 1/4',
+							'three-fourth'	=> 'Three fourth 3/4',
+							'one-fifth'		=> 'One fifth 1/5',
+							'two-fifth'		=> 'Two fifth 2/5',
+							'three-fifth'	=> 'Three fifth 3/5',
+							'four-fifth'	=> 'Four fifth 4/5',
+							'one-sixth'		=> 'One sixth 1/6',
+							'five-sixth'	=> 'Five sixth 5/6',
+						),
+						'tooltip' => 'Select column width. This width will be calculated depend page width'
+					),
+
+					array(
+						'type' => 'select',
+						'name' => 'center',
+						'label' => 'Center',
+						'options' => array(
+							'yes' => 'Yes',
+							'no' => 'No',
+						),
+						'default' => 'no',
+						'tooltip' => 'Is this column centered on the page'
+					),
+					
+					array(
+						'type' => 'text',
+						'name' => 'class',
+						'label' => 'Class',
+						'tooltip' => 'Additional CSS class name(s) separated by space(s)'
+					),
+
+					array(
+						'type' => 'wysiwyg',
+						'name' => 'content',
+						'label' => 'Content',
+						'default' => null
+					)
+				),
+				'sortable' => true,
+				'limit' => 100
 			),
-			'text' => array(
-				'name' => 'text',
-				'type' => 'text',
-				'label' => 'Text'
-			)
 		)
 	);
 
@@ -89,17 +136,40 @@ class PadmaVisualElementsBlockColumns extends PadmaBlockAPI {
 	
 	public function content($block) {
 
+		/*
+		[su_row class=""]
+		  [su_column size="1/2" center="no" class=""]Column content[/su_column]
+		  [su_column size="1/2" center="no" class=""]Column content[/su_column]
+		[/su_row]
+		*/
 
-		$text = parent::get_setting($block, 'text');
-		$type = parent::get_setting($block, 'type');
+		$columns = parent::get_setting($block, 'columns', array());
+		$shortcode = '[su_row class=""]';
+		
+		debug($columns);
+		
+		$index = 1;
+		foreach ($columns as $column => $params) {
 
-		if(!$text)
-			$text = 'Hello';
+			$size 		= $params[ 'size-' . $index ];
+			$center 	= $params[ 'center-' . $index ];
+			$class 		= $params[ 'class-' . $index ];			
+			$content 	= $params[ 'content-' . $index ];
+			
+			$shortcode .= '[su_column ';
+			$shortcode .= 'size="'.$size.'" ';
+			$shortcode .= 'center="'.$center.'" ';
+			$shortcode .= 'class="'.$class.'" ';			
+			$shortcode .= ']';
+			$shortcode .= $content;
+			$shortcode .= '[/su_column]';
 
-		if(!$type)
-			$type = 'default';
+			++$index;
+		}
 
-		echo do_shortcode('[su_label type="'.$type.'"]'.$text.'[/su_label]');
+		$shortcode .= '[/su_row]';
+
+		echo do_shortcode($shortcode);
 
 	}
 
