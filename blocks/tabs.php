@@ -12,31 +12,7 @@ class PadmaVisualElementsBlockTabsOptions extends PadmaBlockOptionsAPI {
 
 	public $inputs = array(
 		'general' => array(
-			/*
-			'style' => array(
-				'name' => 'style',
-				'label' => 'Style',
-				'type' => 'select',
-				'default' => 'default',
-				'options' => array(
-					'default'	=> 'Default',
-					'carbon'	=> 'Carbon',
-					'sharp'		=> 'Sharp',
-					'grid'		=> 'Grid',
-					'wood'		=> 'Wood',
-					'fabric'	=> 'Fabric',
-					'modern-dark'	=> 'Modern: Dark',
-					'modern-light'	=> 'Modern: Light',
-					'modern-blue'	=> 'Modern: Blue',
-					'modern-orange'	=> 'Modern: Orange',
-					'flat-dark'		=> 'Flat: Dark',
-					'flat-light'	=> 'flat: Light',
-					'flat-blue'		=> 'flat: Blue',
-					'flat-green'	=> 'flat: Green',
-				),
-				'tooltip' => 'Choose style for this tabs'
-			),
-			*/
+			
 			'active' => array(
 				'name' => 'active',
 				'label' => 'Active',
@@ -229,8 +205,7 @@ class PadmaVisualElementsBlockTabs extends PadmaBlockAPI {
 			$shortcode = '[su_tabs vertical="'.$vertical.'"]';
 		else
 			$shortcode = '[su_tabs]';
-		
-		debug($tabs);
+
 		
 		$index = 1;
 		foreach ($tabs as $tab => $params) {

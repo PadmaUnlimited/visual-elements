@@ -12,28 +12,7 @@ class PadmaVisualElementsBlockColumnsOptions extends PadmaBlockOptionsAPI {
 
 	public $inputs = array(
 		'general' => array(
-			/*'size' => array(
-				'name' => 'size',
-				'label' => 'Size',
-				'type' => 'select',
-				'default' => 'one-half',
-				'options' => array(
-					'full-width'	=> 'Full width 1/1',
-					'one-half'		=> 'One half 1/2',
-					'one-third'		=> 'One third 1/3',
-					'two-third'		=> 'Two third 2/3',
-					'one-fourth'	=> 'One fourth 1/4',
-					'three-fourth'	=> 'Three fourth 3/4',
-					'one-fifth'		=> 'One fifth 1/5',
-					'two-fifth'		=> 'Two fifth 2/5',
-					'three-fifth'	=> 'Three fifth 3/5',
-					'four-fifth'	=> 'Four fifth 4/5',
-					'one-sixth'		=> 'One sixth 1/6',
-					'five-sixth'	=> 'Five sixth 5/6',
-				),
-				'tooltip' => 'Select column width. This width will be calculated depend page width'
-			),*/
-
+			
 			'columns' => array(
 				'type' => 'repeater',
 				'name' => 'columns',
@@ -136,17 +115,9 @@ class PadmaVisualElementsBlockColumns extends PadmaBlockAPI {
 	
 	public function content($block) {
 
-		/*
-		[su_row class=""]
-		  [su_column size="1/2" center="no" class=""]Column content[/su_column]
-		  [su_column size="1/2" center="no" class=""]Column content[/su_column]
-		[/su_row]
-		*/
 
 		$columns = parent::get_setting($block, 'columns', array());
 		$shortcode = '[su_row class=""]';
-		
-		debug($columns);
 		
 		$index = 1;
 		foreach ($columns as $column => $params) {

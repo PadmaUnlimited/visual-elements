@@ -12,9 +12,9 @@ class PadmaVisualElementsBlockDummySpoilerOptions extends PadmaBlockOptionsAPI {
 
 	public $inputs = array(
 		'general' => array(
-		 'spoiler' => array(
+		 'spoilers' => array(
 		 'type' => 'repeater',
-		 'name' => 'spoiler',
+		 'name' => 'spoilers',
 		 'label' => 'Spoiler',
 		 'tooltip' => 'Spoiler with hidden content',
 		  'inputs' => array(
@@ -77,8 +77,17 @@ class PadmaVisualElementsBlockDummySpoilerOptions extends PadmaBlockOptionsAPI {
 						'label' => 'Anchor',
 						'tooltip' => 'You can use unique anchor for this tab to access it with hash in page url. For example: use Hello and then navigate to url like http://example.com/page-url#Hello. This tab will be activated and scrolled in.'
 					),
+
+					array(
+						'type' => 'wysiwyg',
+						'name' => 'content',
+						'label' => 'Content',
+						'default' => null
+					)
 			
 				),
+		 	'sortable' => true,
+			'limit' => 100
 				
 			),
 			
@@ -127,35 +136,45 @@ class PadmaVisualElementsBlockDummySpoiler extends PadmaBlockAPI {
 	
 	public function content($block) {
 
-        $title = parent::get_setting($block, 'title');
-		$open = parent::get_setting($block, 'open');
-		$style = parent::get_setting($block, 'style');
-		$icon = parent::get_setting($block, 'icon');
-		$anchor = parent::get_setting($block, 'anchor');
+		$spoilers = parent::get_setting($block, 'spoilers', array());
+		$shortcode = "";
+		$index = 1;
+		foreach ($spoilers as $spoiler => $params) {
+
+			$title 		= $params[ 'title-' . $index ];
+			$open 		= $params[ 'open-' . $index ];
+			$style 		= $params[ 'style-' . $index ];			
+			$icon 		= $params[ 'icon-' . $index ];			
+			$anchor 	= $params[ 'anchor-' . $index ];			
+			$content 	= $params[ 'content-' . $index ];
+			
+			if(is_null($title))
+				$title = 'Title';
+
+			if(is_null($open))
+				$open = 'no';
+
+			if(is_null($style))
+				$style = 'default';
+
+			if(is_null($icon))
+				$icon = 'plus';
+
+			if(is_null($anchor))
+				$anchor = 'none';
 
 
-		if(is_null($title))
-			$title = '';
+			$html = do_shortcode('[su_spoiler title="'.$title.'" open="'.$open.'" style="'.$style.'" icon="'.$icon.'" anchor="'.$anchor.'" class=""]'.$content.'[/su_spoiler]');
+			
+			// remove inline CSS for color
+			$html = preg_replace('(style=("|\Z)(.*?)("|\Z))', '', $html);
 
-		if(is_null($open))
-			$open = 'no';
+			$shortcode .= $html;
 
-		if(is_null($style))
-			$style = 'default';
+			++$index;
+		}
 
-		if(is_null($icon))
-			$icon = 'plus';
-
-		if(is_null($anchor))
-			$anchor = 'none';
-
-
-		$html = do_shortcode('[su_spoiler title="'.$title.'" open="'.$open.'" style="'.$style.'" icon="'.$icon.'" anchor="'.$anchor.'" class=""]');
-		
-		// remove inline CSS for color
-		$html = preg_replace('(style=("|\Z)(.*?)("|\Z))', '', $html);
-
-		echo $html;
+		echo $shortcode;	
 
 	}
 
