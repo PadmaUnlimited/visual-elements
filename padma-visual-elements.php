@@ -37,6 +37,7 @@ function register_visual_elements_block() {
 	require_once 'blocks/heading.php';
 	require_once 'blocks/label.php';
 	require_once 'blocks/spacer.php';
+	require_once 'blocks/spoiler.php';
 	require_once 'blocks/tabs.php';
 
 	
@@ -57,6 +58,8 @@ function register_visual_elements_block() {
 	padma_register_block('PadmaVisualElementsBlockLabel', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
 	
 	padma_register_block('PadmaVisualElementsBlockSpacer', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
+	
+	padma_register_block('PadmaVisualElementsBlockDummySpoiler', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
 
 
 	// Padma 0.1.1 or higher required
