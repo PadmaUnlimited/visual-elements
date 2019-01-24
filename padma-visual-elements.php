@@ -40,6 +40,8 @@ function register_visual_elements_block() {
 	require_once 'blocks/spacer.php';
 	require_once 'blocks/spoiler.php';
 	require_once 'blocks/tabs.php';
+	require_once 'blocks/vimeo.php';
+	require_once 'blocks/youtube.php';
 
 	
 	padma_register_block('PadmaVisualElementsBlockButton', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));	
@@ -58,9 +60,13 @@ function register_visual_elements_block() {
 	
 	padma_register_block('PadmaVisualElementsBlockSpacer', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
 	
+	padma_register_block('PadmaVisualElementsBlockVimeo', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
+	
+	padma_register_block('PadmaVisualElementsBlockYoutube', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
 
 
 	// Padma 0.2.2 or higher required
+	// Require repeater multi-content fix
 	if(!version_compare(PADMA_VERSION, '0.2.2', '<')){
 		
 		padma_register_block('PadmaVisualElementsBlockAccordion', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
@@ -70,6 +76,7 @@ function register_visual_elements_block() {
 		padma_register_block('PadmaVisualElementsBlockSpoiler', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
 
 		padma_register_block('PadmaVisualElementsBlockTabs', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
+
 		
 	}
 			

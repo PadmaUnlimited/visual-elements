@@ -110,7 +110,7 @@ class PadmaVisualElementsBlockAccordionOptions extends PadmaBlockOptionsAPI {
 
 class PadmaVisualElementsBlockAccordion extends PadmaBlockAPI {
 	
-	public $id 				= 'visual-elements-Accordion';	
+	public $id 				= 'visual-elements-accordion';	
 	public $name 			= 'Accordion';
 	public $options_class 	= 'PadmaVisualElementsBlockAccordionOptions';	
 	public $description 	= 'Allows you to create blocks with hidden content – spoilers (toggles). Hidden content will be shown when block title will be clicked. You can specify different icons or even use different styles for each spoiler.';
@@ -181,9 +181,7 @@ class PadmaVisualElementsBlockAccordion extends PadmaBlockAPI {
 		}
 
 		$shortcode .= "[/su_accordion]";
-
-		debug($shortcode);
-		
+	
 		$html = do_shortcode($shortcode);
 		// remove inline CSS for color
 		$html = preg_replace('(style=("|\Z)(.*?)("|\Z))', '', $html);

@@ -24,10 +24,10 @@ class PadmaVisualElementsBlockGmapOptions extends PadmaBlockOptionsAPI {
 				'name' => 'responsive',
 				'type' => 'select',
 				'label' => 'Responsive',
-				'default' => 'self',
+				'default' => 'yes',
 				'options' => array(
-					'self'		=> 'Yes',
-					'blank'		=> 'No',
+					'yes'		=> 'Yes',
+					'no'		=> 'No',
 				),
 				'tooltip' => 'Ignore width and height parameters and make map responsive'
 			),
