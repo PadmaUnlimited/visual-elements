@@ -108,7 +108,7 @@ class PadmaVisualElementsBlockSpoiler extends PadmaBlockAPI {
 	public $name 			= 'Spoiler';
 	public $options_class 	= 'PadmaVisualElementsBlockSpoilerOptions';	
 	public $description 	= 'Allows you to create blocks with hidden content – spoilers (toggles). Hidden content will be shown when block title will be clicked. You can specify different icons or even use different styles for each spoiler.';
-	public $categories 		= array('content');
+	public $categories 		= array('box');
 	
 	public function init() {
 
