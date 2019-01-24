@@ -107,7 +107,7 @@ class PadmaVisualElementsBlockDummySpoiler extends PadmaBlockAPI {
 	public $id 				= 'visual-elements-Spoiler';	
 	public $name 			= 'Spoiler';
 	public $options_class 	= 'PadmaVisualElementsBlockDummySpoilerOptions';	
-	public $description 	= 'This shortcode allows you to create blocks with hidden content – spoilers (toggles). Hidden content will be shown when block title will be clicked. You can specify different icons or even use different styles for each spoiler.';
+	public $description 	= 'Allows you to create blocks with hidden content – spoilers (toggles). Hidden content will be shown when block title will be clicked. You can specify different icons or even use different styles for each spoiler.';
 	public $categories 		= array('content');
 	
 	public function init() {
@@ -140,6 +140,8 @@ class PadmaVisualElementsBlockDummySpoiler extends PadmaBlockAPI {
 		$shortcode = "";
 		$index = 1;
 		foreach ($spoilers as $spoiler => $params) {
+
+			//debug($params);
 
 			$title 		= $params[ 'title-' . $index ];
 			$open 		= $params[ 'open-' . $index ];
