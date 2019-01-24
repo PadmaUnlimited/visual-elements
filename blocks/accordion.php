@@ -1,6 +1,6 @@
 <?php
 
-class PadmaVisualElementsBlockSpoilerOptions extends PadmaBlockOptionsAPI {
+class PadmaVisualElementsBlockAccordionOptions extends PadmaBlockOptionsAPI {
 	
 	public $tabs = array(
 		'general' 			=> 'General',
@@ -12,12 +12,18 @@ class PadmaVisualElementsBlockSpoilerOptions extends PadmaBlockOptionsAPI {
 
 	public $inputs = array(
 		'general' => array(
+			'accordion-class' => array(
+				'name' => 'accordion-class',
+				'type' => 'text',
+				'label' => 'CSS Accordion Class',
+				'tooltip' => 'Additional CSS class name(s) separated by space(s)'
+			),
 			'spoilers' => array(
 				'type' => 'repeater',
-				'name' => 'spoilers',
-				'label' => 'Spoiler',
-				'tooltip' => 'Spoiler with hidden content',
-				'inputs' => array(
+			 	'name' => 'spoilers',
+			 	'label' => 'Accordion',
+			 	'tooltip' => 'Accordion with hidden content',
+			  	'inputs' => array(
 					array(
 						'type' => 'text',
 						'name' => 'title',
@@ -102,11 +108,11 @@ class PadmaVisualElementsBlockSpoilerOptions extends PadmaBlockOptionsAPI {
 	
 }
 
-class PadmaVisualElementsBlockSpoiler extends PadmaBlockAPI {
+class PadmaVisualElementsBlockAccordion extends PadmaBlockAPI {
 	
-	public $id 				= 'visual-elements-spoiler';	
-	public $name 			= 'Spoiler';
-	public $options_class 	= 'PadmaVisualElementsBlockSpoilerOptions';	
+	public $id 				= 'visual-elements-Accordion';	
+	public $name 			= 'Accordion';
+	public $options_class 	= 'PadmaVisualElementsBlockAccordionOptions';	
 	public $description 	= 'Allows you to create blocks with hidden content – spoilers (toggles). Hidden content will be shown when block title will be clicked. You can specify different icons or even use different styles for each spoiler.';
 	public $categories 		= array('content');
 	
@@ -136,9 +142,11 @@ class PadmaVisualElementsBlockSpoiler extends PadmaBlockAPI {
 	
 	public function content($block) {
 
+		$accordion_class = parent::get_setting($block, 'accordion-class', array());
 		$spoilers = parent::get_setting($block, 'spoilers', array());
-		$shortcode = "";
+		$shortcode = "[su_accordion class=".$accordion_class."]";
 		$index = 1;
+
 		foreach ($spoilers as $spoiler => $params) {
 
 			//debug($params);
@@ -166,17 +174,21 @@ class PadmaVisualElementsBlockSpoiler extends PadmaBlockAPI {
 				$anchor = 'none';
 
 
-			$html = do_shortcode('[su_spoiler title="'.$title.'" open="'.$open.'" style="'.$style.'" icon="'.$icon.'" anchor="'.$anchor.'" class=""]'.$content.'[/su_spoiler]');
+			$shortcode .= '[su_spoiler title="'.$title.'" open="'.$open.'" style="'.$style.'" icon="'.$icon.'" anchor="'.$anchor.'" class=""]'.$content.'[/su_spoiler]';
 			
-			// remove inline CSS for color
-			$html = preg_replace('(style=("|\Z)(.*?)("|\Z))', '', $html);
-
-			$shortcode .= $html;
 
 			++$index;
 		}
 
-		echo $shortcode;	
+		$shortcode .= "[/su_accordion]";
+
+		debug($shortcode);
+		
+		$html = do_shortcode($shortcode);
+		// remove inline CSS for color
+		$html = preg_replace('(style=("|\Z)(.*?)("|\Z))', '', $html);
+
+		echo $html;	
 
 	}
 
