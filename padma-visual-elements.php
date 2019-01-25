@@ -31,6 +31,7 @@ function register_visual_elements_block() {
 	require_once 'blocks/accordion.php';
 	require_once 'blocks/button.php';
 	require_once 'blocks/columns.php';
+	require_once 'blocks/dailymotion.php';
 	require_once 'blocks/divider.php';
 	require_once 'blocks/dummy-image.php';
 	require_once 'blocks/dummy-text.php';
@@ -47,6 +48,8 @@ function register_visual_elements_block() {
 	padma_register_block('PadmaVisualElementsBlockButton', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));	
 
 	padma_register_block('PadmaVisualElementsBlockDivider', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
+
+	padma_register_block('PadmaVisualElementsBlockDailymotion', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
 
 	padma_register_block('PadmaVisualElementsBlockDummyImage', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
 
