@@ -13,6 +13,14 @@ class PadmaFontAwesomeBlockOptions extends PadmaBlockOptionsAPI {
 
 	public $inputs = array(
 		'general' => array(
+			'filter' => array(
+				'name' => 'filter',
+				'type' => 'raw_html',
+				'html' => 	'<div class="icon-filter-search">
+								<input type="text" id="icon-filter" placeholder="Filter" title="Filter icons">
+								<a class="icon-filter-reset"><span>x</span></a>
+							</div>'
+			),
 			'fa-icon' => array(
 				'name' => 'fa-icon',
 				'type' => 'radio',
@@ -1374,8 +1382,7 @@ class PadmaFontAwesomeBlockOptions extends PadmaBlockOptionsAPI {
 	);
 
 
-	public function modify_arguments($args = false) {
-
+	public function modify_arguments($args = false) {		
 
 	}
 	
@@ -1386,13 +1393,14 @@ class PadmaFontAwesomeBlockOptions extends PadmaBlockOptionsAPI {
 class PadmaFontAwesomeBlock extends PadmaBlockAPI {
 	
 	public $id 				= 'visual-elements-fontawesome';	
-	public $name 			= 'FontAwesome';
+	public $name 			= 'FontAwesome Icon';
 	public $options_class 	= 'PadmaFontAwesomeBlockOptions';
 	public $description 	= 'Add FontAwesome to the visual editor.';
 	public $categories 		= array('content');
 	
 	public function init() {
 		add_action('padma_visual_editor_styles',array(__CLASS__,'fontawesome_admin_styles'));
+		add_action('padma_visual_editor_scripts',array(__CLASS__,'fontawesome_admin_scripts'),99);
 	}
 	
 	public function setup_elements() {
@@ -1425,9 +1433,17 @@ class PadmaFontAwesomeBlock extends PadmaBlockAPI {
 	}
 
 	public static function fontawesome_admin_styles() {
-		$path = str_replace('/blocks', '', plugin_dir_url( __FILE__ ));
+		
 		wp_register_style( 'padma_fontawesome_style', 'https://use.fontawesome.com/releases/v5.7.0/css/all.css', false );
         wp_enqueue_style( 'padma_fontawesome_style' );
+
+	}
+	
+	public static function fontawesome_admin_scripts() {
+
+		$path = str_replace('/blocks', '', plugin_dir_url( __FILE__ ));		
+		wp_register_script( 'padma_fontawesome_script', $path . 'visual-elements-fontawesome.js');
+        wp_enqueue_script( 'padma_fontawesome_script' );
 	}
 	
 	
