@@ -35,6 +35,7 @@ function register_visual_elements_block() {
 	require_once 'blocks/divider.php';
 	require_once 'blocks/dummy-image.php';
 	require_once 'blocks/dummy-text.php';
+	require_once 'blocks/fontawesome.php';
 	require_once 'blocks/gmap.php';
 	require_once 'blocks/heading.php';
 	require_once 'blocks/label.php';
@@ -78,9 +79,18 @@ function register_visual_elements_block() {
 	
 		padma_register_block('PadmaVisualElementsBlockSpoiler', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
 
-		padma_register_block('PadmaVisualElementsBlockTabs', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
+		padma_register_block('PadmaVisualElementsBlockTabs', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', 
+			plugin_basename(__FILE__)), 0, -1));
+	
+	}
 
+
+	// Padma 0.3.1 or higher required
+	// Require panel input radio support
+	if(!version_compare(PADMA_VERSION, '0.3.1', '<')){
 		
+		padma_register_block('PadmaFontAwesomeBlock', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
+
 	}
 			
 	
