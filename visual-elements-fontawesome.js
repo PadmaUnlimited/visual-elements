@@ -1,7 +1,7 @@
 jQuery(document).ready(function($){
 
 	
-		//Font Awesome icon search + filter
+	//Font Awesome icon search + filter
 
 	$(document).on('click', '.icon-filter-reset',function(){
 		$('.icon-filter-search #icon-filter').val('');
