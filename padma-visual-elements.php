@@ -4,7 +4,7 @@
 Plugin Name: Padma Visual Elements
 Plugin URI: https://www.padmaunlimited.com/plugins/visual-elements
 Description: Integration plugin between Shortcodes Ultimate and Padma Unlimited theme
-Version: 1.0.1
+Version: 1.0.2
 Author: Padma Unlimited team
 Author URI: https://www.padmaunlimited.com
 License: GNU GPL v2
@@ -28,72 +28,30 @@ function register_visual_elements_block() {
 	 *
 	 */
 	
-	require_once 'blocks/accordion.php';
-	require_once 'blocks/button.php';
-	require_once 'blocks/columns.php';
-	require_once 'blocks/dailymotion.php';
-	require_once 'blocks/divider.php';
-	require_once 'blocks/dummy-image.php';
-	require_once 'blocks/dummy-text.php';
-	require_once 'blocks/fontawesome.php';
-	require_once 'blocks/gmap.php';
-	require_once 'blocks/heading.php';
-	require_once 'blocks/label.php';
-	require_once 'blocks/spacer.php';
-	require_once 'blocks/spoiler.php';
-	require_once 'blocks/tabs.php';
-	require_once 'blocks/vimeo.php';
-	require_once 'blocks/youtube.php';
+	$blocks = array(
+		'accordion' => 'PadmaVisualElementsBlockAccordion',
+		'button' => 'PadmaVisualElementsBlockButton',
+		'columns' => 'PadmaVisualElementsBlockColumns',
+		'content-to-accordion' => 'PadmaVisualElementsBlockContentToAccordion',
+		'dailymotion' => 'PadmaVisualElementsBlockDailymotion',
+		'divider' => 'PadmaVisualElementsBlockDivider',
+		'dummy-image' => 'PadmaVisualElementsBlockDummyImage',
+		'dummy-text' => 'PadmaVisualElementsBlockDummyText',
+		'fontawesome' => 'PadmaVisualElementsFontAwesomeBlock',
+		'gmap' => 'PadmaVisualElementsBlockGmap',
+		'heading' => 'PadmaVisualElementsBlockHeading',
+		'label' => 'PadmaVisualElementsBlockLabel',
+		'spacer' => 'PadmaVisualElementsBlockSpacer',
+		'spoiler' => 'PadmaVisualElementsBlockSpoiler',
+		'tabs' => 'PadmaVisualElementsBlockTabs',
+		'vimeo' => 'PadmaVisualElementsBlockVimeo',
+		'youtube' => 'PadmaVisualElementsBlockYoutube',
+	);
 
-	
-	padma_register_block('PadmaVisualElementsBlockButton', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));	
-
-	padma_register_block('PadmaVisualElementsBlockDivider', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
-
-	padma_register_block('PadmaVisualElementsBlockDailymotion', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
-
-	padma_register_block('PadmaVisualElementsBlockDummyImage', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
-
-	padma_register_block('PadmaVisualElementsBlockDummyText', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
-	
-	padma_register_block('PadmaVisualElementsBlockGmap', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
-	
-	padma_register_block('PadmaVisualElementsBlockHeading', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
-	
-	padma_register_block('PadmaVisualElementsBlockLabel', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
-	
-	padma_register_block('PadmaVisualElementsBlockSpacer', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
-	
-	padma_register_block('PadmaVisualElementsBlockVimeo', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
-	
-	padma_register_block('PadmaVisualElementsBlockYoutube', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
-
-
-	// Padma 0.2.2 or higher required
-	// Require repeater multi-content fix
-	if(!version_compare(PADMA_VERSION, '0.2.2', '<')){
-		
-		padma_register_block('PadmaVisualElementsBlockAccordion', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
-
-		padma_register_block('PadmaVisualElementsBlockColumns', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
-	
-		padma_register_block('PadmaVisualElementsBlockSpoiler', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
-
-		padma_register_block('PadmaVisualElementsBlockTabs', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', 
-			plugin_basename(__FILE__)), 0, -1));
-	
+	foreach ($blocks as $file => $class) {
+		require_once 'blocks/'.$file.'.php';
+		padma_register_block($class, substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));	
 	}
-
-
-	// Padma 0.3.1 or higher required
-	// Require panel input radio support
-	if(!version_compare(PADMA_VERSION, '0.3.1', '<')){
-		
-		padma_register_block('PadmaFontAwesomeBlock', substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));
-
-	}
-			
-	
 
 }
 

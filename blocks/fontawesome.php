@@ -1,7 +1,7 @@
 <?php
 
 
-class PadmaFontAwesomeBlockOptions extends PadmaBlockOptionsAPI {
+class PadmaVisualElementsFontAwesomeBlockOptions extends PadmaBlockOptionsAPI {
 	
 	public $tabs = array(
 		'general' 			=> 'General',
@@ -1390,11 +1390,11 @@ class PadmaFontAwesomeBlockOptions extends PadmaBlockOptionsAPI {
 
 
 
-class PadmaFontAwesomeBlock extends PadmaBlockAPI {
+class PadmaVisualElementsFontAwesomeBlock extends PadmaBlockAPI {
 	
 	public $id 				= 'visual-elements-fontawesome';	
 	public $name 			= 'FontAwesome Icon';
-	public $options_class 	= 'PadmaFontAwesomeBlockOptions';
+	public $options_class 	= 'PadmaVisualElementsFontAwesomeBlockOptions';
 	public $description 	= 'Add FontAwesome to the visual editor.';
 	public $categories 		= array('content');
 	

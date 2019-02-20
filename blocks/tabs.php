@@ -106,7 +106,7 @@ class PadmaVisualElementsBlockTabs extends PadmaBlockAPI {
 	public $id 				= 'visual-elements-tabs';	
 	public $name 			= 'Tabs';
 	public $options_class 	= 'PadmaVisualElementsBlockTabsOptions';	
-	public $description 	= 'This shortcode allows you to divide your content with horizontal or vertical tabs. You can specify which tab will be selected by default and turn any tab into link. You can use any HTML code or even other shortcodes as a content.';
+	public $description 	= 'Allows you to divide your content with horizontal or vertical tabs. You can specify which tab will be selected by default and turn any tab into link. You can use any HTML code or even other shortcodes as a content.';
 	public $categories 		= array('box');
 	
 	public function init() {
