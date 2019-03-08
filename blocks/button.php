@@ -29,13 +29,14 @@ class PadmaVisualElementsBlockButtonOptions extends PadmaBlockOptionsAPI {
 				),
 				'tooltip' => 'Button link target'
 			),
-			/*
+			
 			'style' => array(
 				'name' => 'style',
 				'label' => 'Style',
 				'type' => 'select',
 				'default' => 'default',
 				'options' => array(
+					'none'		=> 'none',
 					'default'	=> 'Default',
 					'flat'		=> 'Flat',
 					'ghost'		=> 'Ghost',
@@ -47,12 +48,12 @@ class PadmaVisualElementsBlockButtonOptions extends PadmaBlockOptionsAPI {
 					'3d'		=> '3D',
 				),
 				'tooltip' => 'Button background style preset'
-			),*/
+			),
 			'icon' => array(
 				'name' => 'icon',
 				'label' => 'Icon',
 				'type' => 'text',
-				'tooltip' => 'You can upload custom icon for this button or pick a built-in icon. FontAwesome icon name (with “icon:” prefix) or icon image URL. Examples: icon: star, http://example.com/icon.png'
+				'tooltip' => 'You can upload custom icon for this button or pick a built-in icon. FontAwesome icon name or icon image URL. Examples: "star", http://example.com/icon.png'
 			),
 			'desc' => array(
 				'name' => 'desc',
@@ -112,6 +113,11 @@ class PadmaVisualElementsBlockButton extends PadmaBlockAPI {
 			'selector' => 'a.su-button',
 		));
 		$this->register_block_element(array(
+			'id' => 'icon',
+			'name' => 'icon',
+			'selector' => 'a.su-button span i',
+		));
+		$this->register_block_element(array(
 			'id' => 'text',
 			'name' => 'text',
 			'selector' => 'a.su-button span small',
@@ -138,7 +144,19 @@ class PadmaVisualElementsBlockButton extends PadmaBlockAPI {
 		$rel = parent::get_setting($block, 'rel');
 		$title = parent::get_setting($block, 'title');
 
-		$html = do_shortcode('[su_button url="'.$url.'" target="'.$target.'" style="'.$style.'" icon="'.$icon.'" desc="'.$desc.'" onclick="'.$onclick.'" rel="'.$rel.'" title="'.$title.'"]');
+
+		$shortcode = '[su_button url="'.$url.'" target="'.$target.'"';
+		
+		//if($style != 'none')
+			$shortcode .= ' style="'.$style.'"';
+		
+		if ($icon && !filter_var($icon, FILTER_VALIDATE_URL))
+			$icon = 'icon:' . $icon;
+
+		$shortcode .= ' icon="'.$icon.'" desc="'.$desc.'" onclick="'.$onclick.'" rel="'.$rel.'" title="'.$title.'"]';
+		
+
+		$html = do_shortcode( $shortcode );
 
 		// remove inline CSS
 		$html = preg_replace('(style=("|\Z)(.*?)("|\Z))', '', $html);
@@ -148,7 +166,24 @@ class PadmaVisualElementsBlockButton extends PadmaBlockAPI {
 	}
 
 	public static function enqueue_action($block_id, $block = false) {
-	
+
+		if ( !$block )
+			$block = PadmaBlocksData::get_block($block_id);
+
+		
+		$path = str_replace('/blocks', '', plugin_dir_url( __FILE__ ));		
+		$style = parent::get_setting($block, 'style');
+
+
+		if($style != 'none'){
+
+			/* CSS */		
+			wp_enqueue_style('padma-ve-button', $path . 'css/button.css');
+
+		}
+
+		
+		
 	}
 	
 }

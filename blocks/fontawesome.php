@@ -1425,17 +1425,19 @@ class PadmaVisualElementsFontAwesomeBlock extends PadmaBlockAPI {
 
 	public static function enqueue_action($block_id, $block = false) {
 
-		/* CSS */		
+		/* CSS */
 		$path = str_replace('/blocks', '', plugin_dir_url( __FILE__ ));
-		wp_enqueue_style('padma-fontawesome', 'https://use.fontawesome.com/releases/v5.7.0/css/all.css');
+		wp_enqueue_style('padma-ve-fontawesome', $path . 'css/fontawesome.css');
 
 		
 	}
 
 	public static function fontawesome_admin_styles() {
 		
-		wp_register_style( 'padma_fontawesome_style', 'https://use.fontawesome.com/releases/v5.7.0/css/all.css', false );
-        wp_enqueue_style( 'padma_fontawesome_style' );
+		
+		$path = str_replace('/blocks', '', plugin_dir_url( __FILE__ ));
+		wp_register_style( 'padma-ve-fontawesome', $path . 'css/fontawesome.css', false );
+        wp_enqueue_style( 'padma-ve-fontawesome' );
 
 	}
 	

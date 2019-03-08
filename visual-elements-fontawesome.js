@@ -1,5 +1,4 @@
-jQuery(document).ready(function($){
-
+jQuery(function($){
 	
 	//Font Awesome icon search + filter
 
