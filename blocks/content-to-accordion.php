@@ -376,13 +376,11 @@ class PadmaVisualElementsBlockContentToAccordion extends PadmaBlockAPI {
 			$author	= get_the_author_meta('display_name',$post->post_author);
 
 			// Open Spoiler
-			$shortcode .= '[su_spoiler title="Spoiler '.$title.'" ';
+			$shortcode .= '[su_spoiler title="'.$title.'" ';
 			if ($open_item == $open)
 				$shortcode .= 'open="yes" ';
 			else
 				$shortcode .= 'open="no" ';
-
-			debug($open_item);
 
 			$shortcode .= 'style="'.$style.'" icon="'.$icon.'" anchor="'.$title.'" class="'.$item_class.'"]';
 
