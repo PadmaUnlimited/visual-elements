@@ -111,6 +111,10 @@ class PadmaVisualElementsBlockButton extends PadmaBlockAPI {
 			'id' => 'button',
 			'name' => 'button',
 			'selector' => 'a.su-button',
+			'states' => array(
+				'Hover' => 'a.su-button:hover', 
+				'Clicked' => 'a.su-button:active'
+			)
 		));
 		$this->register_block_element(array(
 			'id' => 'icon',
