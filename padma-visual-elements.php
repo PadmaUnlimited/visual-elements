@@ -18,9 +18,6 @@ function register_visual_elements() {
 
 	if (!class_exists('PadmaBlockAPI') )
 		return false;
-
-	if(!class_exists('Shortcodes_Ultimate'))
-			return false;
 	
 	/**
 	 *
@@ -47,6 +44,7 @@ function register_visual_elements() {
 		'tabs' => 'PadmaVisualElementsBlockTabs',
 		'vimeo' => 'PadmaVisualElementsBlockVimeo',
 		'youtube' => 'PadmaVisualElementsBlockYoutube',
+		'quote' => 'PadmaVisualElementsBlockQuote',
 	);
 
 	foreach ($blocks as $file => $class) {

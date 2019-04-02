@@ -16,43 +16,7 @@ class PadmaVisualElementsBlockHeadingOptions extends PadmaBlockOptionsAPI {
 				'name' => 'heading-text',
 				'type' => 'text',
 				'label' => 'Heading text'
-			),
-			/*
-			'style' => array(
-				'name' => 'style',
-				'label' => 'Style',
-				'type' => 'select',
-				'default' => 'none',
-				'options' => array(
-					'default'		=> 'Default',
-					'modern-1-dark'		=> 'Modern 1: Dark',
-					'modern-1-light'	=> 'Modern 1: Light',
-					'modern-1-blue'		=> 'Modern 1: Blue',
-					'modern-1-orange'	=> 'Modern 1: Orange',
-					'modern-1-violet'	=> 'Modern 1: Violet',
-					'modern-2-dark'		=> 'Modern 2: Dark',
-					'modern-2-light'	=> 'Modern 2: Light',
-					'modern-2-blue'		=> 'Modern 2: Blue',
-					'modern-2-orange'	=> 'Modern 2: Orange',
-					'modern-2-violet'	=> 'Modern 2: Violet',
-					'line-dark'			=> 'Line: Dark',
-					'line-light'		=> 'Line: Light',
-					'line-blue'			=> 'Line: Blue',
-					'line-orange'		=> 'Line: Orange',
-					'line-violet'		=> 'Line: Violet',
-					'dotted-line-dark'	=> 'Dotted line: Dark',
-					'dotted-line-light'	=> 'Dotted line: Light',
-					'dotted-line-blue'	=> 'Dotted line: Blue',
-					'dotted-line-orange'	=> 'Dotted line: Orange',
-					'dotted-line-violet'	=> 'Dotted line: Violet',
-					'flat-dark'		=> 'Flat: Dark',
-					'flat-light'		=> 'Flat: Light',
-					'flat-blue'		=> 'Flat: Blue',
-					'flat-green'		=> 'Flat: Green',
-				),
-				'tooltip' => 'Choose style for this heading'
-			),
-			*/
+			),			
 		)
 	);
 
