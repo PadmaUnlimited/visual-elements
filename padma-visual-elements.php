@@ -27,6 +27,7 @@ function register_visual_elements() {
 	
 	$blocks = array(
 		'accordion' => 'PadmaVisualElementsBlockAccordion',
+		'box' => 'PadmaVisualElementsBlockBox',
 		'button' => 'PadmaVisualElementsBlockButton',
 		'columns' => 'PadmaVisualElementsBlockColumns',
 		'content-to-accordion' => 'PadmaVisualElementsBlockContentToAccordion',

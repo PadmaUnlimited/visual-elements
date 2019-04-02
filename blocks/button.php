@@ -185,8 +185,6 @@ class PadmaVisualElementsBlockButton extends PadmaBlockAPI {
 			wp_enqueue_style('padma-ve-button', $path . 'css/button.css');
 
 		}
-
-		
 		
 	}
 	
