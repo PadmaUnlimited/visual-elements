@@ -31,6 +31,7 @@ function register_visual_elements() {
 		'button' => 'PadmaVisualElementsBlockButton',
 		'columns' => 'PadmaVisualElementsBlockColumns',
 		'content-to-accordion' => 'PadmaVisualElementsBlockContentToAccordion',
+		'content-to-cards' => 'PadmaVisualElementsBlockContentToCards',
 		'content-to-tabs' => 'PadmaVisualElementsBlockContentToTabs',
 		'dailymotion' => 'PadmaVisualElementsBlockDailymotion',
 		'divider' => 'PadmaVisualElementsBlockDivider',

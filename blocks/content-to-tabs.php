@@ -240,15 +240,19 @@ class PadmaVisualElementsBlockContentToTabsOptions extends PadmaBlockOptionsAPI 
 	function get_tags() {
 		return PadmaQuery::get_tags();
 	}
+
 	function get_authors() {
 		return PadmaQuery::get_authors();
 	}
+
 	function get_post_types() {
 		return PadmaQuery::get_post_types();
 	}
+
 	function get_taxonomies() {
 		return PadmaQuery::get_taxonomies();
 	}
+
 	function get_post_status() {
 		return PadmaQuery::get_post_status();
 	}
@@ -259,8 +263,8 @@ class PadmaVisualElementsBlockContentToTabs extends PadmaBlockAPI {
 	public $id 				= 've-content-to-tabs';	
 	public $name 			= 'Content to Tabs';
 	public $options_class 	= 'PadmaVisualElementsBlockContentToTabsOptions';	
-	public $description 	= 'Allows you to divide your content with horizontal or vertical tabs. You can specify which tab will be selected by default and turn any tab into a link..';
-	public $categories 		= array('box','content');
+	public $description 	= 'Allows you to divide your content with horizontal or vertical tabs. You can specify which tab will be selected by default and turn any tab into a link.';
+	public $categories 		= array('box','content','dynamic-content');
 	
 	public function init() {
 

@@ -221,15 +221,19 @@ class PadmaVisualElementsBlockContentToAccordionOptions extends PadmaBlockOption
 	function get_tags() {
 		return PadmaQuery::get_tags();
 	}
+
 	function get_authors() {
 		return PadmaQuery::get_authors();
 	}
+
 	function get_post_types() {
 		return PadmaQuery::get_post_types();
 	}
+
 	function get_taxonomies() {
 		return PadmaQuery::get_taxonomies();
 	}
+
 	function get_post_status() {
 		return PadmaQuery::get_post_status();
 	}
@@ -241,14 +245,13 @@ class PadmaVisualElementsBlockContentToAccordion extends PadmaBlockAPI {
 	public $name 			= 'Content to Accordion';
 	public $options_class 	= 'PadmaVisualElementsBlockContentToAccordionOptions';	
 	public $description 	= 'Allows you to create blocks with hidden posts content. Hidden content will be shown when block title will be clicked. You can specify different icons or even use different styles for each spoiler.';
-	public $categories 		= array('box','content');
+	public $categories 		= array('box','content','dynamic-content');
 	
 	public function init() {
 
-
 		if(!class_exists('Shortcodes_Ultimate'))
 			return false;
-
+		
 	}
 	
 	public function setup_elements() {
