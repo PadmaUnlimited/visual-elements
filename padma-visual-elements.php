@@ -40,6 +40,7 @@ function register_visual_elements() {
 		'gmap' => 'PadmaVisualElementsBlockGmap',
 		'heading' => 'PadmaVisualElementsBlockHeading',
 		'label' => 'PadmaVisualElementsBlockLabel',
+		'lightbox' => 'PadmaVisualElementsBlockLightbox',
 		'spacer' => 'PadmaVisualElementsBlockSpacer',
 		'spoiler' => 'PadmaVisualElementsBlockSpoiler',
 		'tabs' => 'PadmaVisualElementsBlockTabs',

@@ -28,7 +28,6 @@ class PadmaVisualElementsBlockBoxOptions extends PadmaBlockOptionsAPI {
 				'tooltip' => 'Box style preset'
 			),
 
-
 			'radius' => array(
 				'name' => 'radius',
 				'type' => 'text',
