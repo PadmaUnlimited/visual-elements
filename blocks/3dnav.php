@@ -32,7 +32,7 @@ class PadmaVisualElementsBlock3dNav extends PadmaBlockAPI {
 	public $categories 		= array('navigation');
 
 	private static $block_id  = '';
-	private static $menuitems = array();
+	private static $menuitems = array();	
 	
 	public function init() {
 
@@ -52,12 +52,10 @@ class PadmaVisualElementsBlock3dNav extends PadmaBlockAPI {
 
 		register_nav_menu( 'navigation_block_' . $block_id, $name );
 
-
-
 		$menu_name = 'navigation_block_' . self::$block_id;
 		$locations = get_nav_menu_locations();
 		$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
-		self::$menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
+		self::$menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC', 'object_id' => get_queried_object_id()) );
 
 	}
 	
@@ -95,9 +93,14 @@ class PadmaVisualElementsBlock3dNav extends PadmaBlockAPI {
 		$total = count(self::$menuitems);
 		$width = 100/$total;
 
-		$css = '.cd-3d-nav li{';
+		$css = '.cd-marker, .ve-3d-nav li{';
 		$css .= 'width: '. $width . '%;';
 		$css .= '}';
+
+		if(is_user_logged_in()){
+			$css .= '.ve-3d-nav-container{ margin-top:32px; }';
+			$css .= '@media only screen and (max-width: 768px) { .ve-3d-nav-container{ margin-top:46px; } }';
+		}
 
 		echo $css;
 
@@ -107,7 +110,7 @@ class PadmaVisualElementsBlock3dNav extends PadmaBlockAPI {
 	public function content($block) {
 
 		$html = '<div class="cd-header">				   
-				   <a href="#0" class="cd-3d-nav-trigger">Menu<span></span></a>
+				   <a href="#0" class="ve-3d-nav-trigger">Menu<span></span></a>
 				</div>';
 
 		echo $html;
@@ -117,23 +120,19 @@ class PadmaVisualElementsBlock3dNav extends PadmaBlockAPI {
 	public static function add_menu_to_body(){
 
 
-		global $post;		
+		global $post;
+
 
 		if ( !$block )
 			$block = PadmaBlocksData::get_block(self::$block_id);
 
-		/*
-		$menu_name = 'navigation_block_' . self::$block_id;
-		$locations = get_nav_menu_locations();
-		$menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
-		$menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
-		*/
-		$html = '<nav class="cd-3d-nav-container">';
-		$html .= '<ul class="cd-3d-nav">';
+		
+		$html = '<nav class="ve-3d-nav-container">';
+		$html .= '<ul class="ve-3d-nav">';
 
 		foreach (self::$menuitems as $key => $item) {
 
-			$current = ($post->ID == $item->ID) ? 'current': '';
+			$current = ($post->ID == $item->object_id) ? 'current': '';
 			
 			$html .= '<li class="'. $current .'">';			
 			$html .= '<a href="'.$item->url.'">';
@@ -144,10 +143,11 @@ class PadmaVisualElementsBlock3dNav extends PadmaBlockAPI {
 			$html .= '"></i>';
 			$html .= '<span>'.$item->title.'</span>';
 			$html .= '</a>';
+			if($current!=''){
+				$html .= '<span class="cd-marker" style="left: 0px;"></span>';
+			}
 			$html .= '</li>';
-			
-				
-			
+						
 		}
 		
 		$html .= '</ul>';

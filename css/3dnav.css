@@ -1,7 +1,7 @@
 .block-type-ve-3d-nav{
   overflow: visible;
 }
-.cd-3d-nav-container{
+.ve-3d-nav-container{
     background-color: #485274;
 }
 /* -------------------------------- 
@@ -9,7 +9,7 @@
 Main Components 
 
 -------------------------------- */
-.cd-header {
+.block-type-ve-3d-nav {
   height: 80px;
   width: 90%;
   margin: 0 auto;
@@ -25,12 +25,12 @@ Main Components
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-.cd-header::after {
+.block-type-ve-3d-nav::after {
   clear: both;
   content: "";
   display: table;
 }
-.cd-header.nav-is-visible {
+.block-type-ve-3d-nav.nav-is-visible {
   -webkit-transform: translateY(80px);
   -moz-transform: translateY(80px);
   -ms-transform: translateY(80px);
@@ -38,7 +38,7 @@ Main Components
   transform: translateY(80px);
 }
 @media only screen and (min-width: 768px) {
-  .cd-header.nav-is-visible {
+  .block-type-ve-3d-nav.nav-is-visible {
     -webkit-transform: translateY(170px);
     -moz-transform: translateY(170px);
     -ms-transform: translateY(170px);
@@ -52,7 +52,7 @@ Main Components
   margin-top: 28px;
 }
 
-.cd-3d-nav-trigger {
+.ve-3d-nav-trigger {
   position: relative;
   float: right;
   height: 45px;
@@ -64,9 +64,9 @@ Main Components
   white-space: nowrap;
   color: transparent;
 }
-.cd-3d-nav-trigger span,
-.cd-3d-nav-trigger span::before,
-.cd-3d-nav-trigger span::after {
+.ve-3d-nav-trigger span,
+.ve-3d-nav-trigger span::before,
+.ve-3d-nav-trigger span::after {
   /* hamburger icon in CSS */
   position: absolute;
   width: 28px;
@@ -75,7 +75,7 @@ Main Components
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-.cd-3d-nav-trigger span {
+.ve-3d-nav-trigger span {
   /* this is the central line */
   top: 21px;
   left: 8px;
@@ -83,7 +83,7 @@ Main Components
   -moz-transition: background 0.2s 0.5s;
   transition: background 0.2s 0.5s;
 }
-.cd-3d-nav-trigger span::before, .cd-3d-nav-trigger span:after {
+.ve-3d-nav-trigger span::before, .ve-3d-nav-trigger span:after {
   /* these are the upper and lower lines */
   content: '';
   left: 0;
@@ -91,28 +91,28 @@ Main Components
   -moz-transition: -moz-transform 0.2s 0.5s;
   transition: transform 0.2s 0.5s;
 }
-.cd-3d-nav-trigger span::before {
+.ve-3d-nav-trigger span::before {
   bottom: 8px;
 }
-.cd-3d-nav-trigger span::after {
+.ve-3d-nav-trigger span::after {
   top: 8px;
 }
-.nav-is-visible .cd-3d-nav-trigger span {
+.nav-is-visible .ve-3d-nav-trigger span {
   /* hide line in the center */
   background-color: rgba(255, 255, 255, 0);
 }
-.nav-is-visible .cd-3d-nav-trigger span::before, .nav-is-visible .cd-3d-nav-trigger span::after {
+.nav-is-visible .ve-3d-nav-trigger span::before, .nav-is-visible .ve-3d-nav-trigger span::after {
   /* keep visible other 2 lines */
   background-color: black;
 }
-.nav-is-visible .cd-3d-nav-trigger span::before {
+.nav-is-visible .ve-3d-nav-trigger span::before {
   -webkit-transform: translateY(8px) rotate(-45deg);
   -moz-transform: translateY(8px) rotate(-45deg);
   -ms-transform: translateY(8px) rotate(-45deg);
   -o-transform: translateY(8px) rotate(-45deg);
   transform: translateY(8px) rotate(-45deg);
 }
-.nav-is-visible .cd-3d-nav-trigger span::after {
+.nav-is-visible .ve-3d-nav-trigger span::after {
   -webkit-transform: translateY(-8px) rotate(45deg);
   -moz-transform: translateY(-8px) rotate(45deg);
   -ms-transform: translateY(-8px) rotate(45deg);
@@ -120,7 +120,7 @@ Main Components
   transform: translateY(-8px) rotate(45deg);
 }
 
-.cd-3d-nav-container {
+.ve-3d-nav-container {
   /* this is the 3D navigation container */
   position: fixed;
   top: 0;
@@ -142,7 +142,7 @@ Main Components
   -moz-transition: -moz-transform 0.5s 0s, visibility 0s 0.5s;
   transition: transform 0.5s 0s, visibility 0s 0.5s;
 }
-.cd-3d-nav-container.nav-is-visible {
+.ve-3d-nav-container.nav-is-visible {
   visibility: visible;
   -webkit-transform: translateY(0);
   -moz-transform: translateY(0);
@@ -154,12 +154,12 @@ Main Components
   transition: transform 0.5s 0s, visibility 0.5s 0s;
 }
 @media only screen and (min-width: 768px) {
-  .cd-3d-nav-container {
+  .ve-3d-nav-container {
     height: 170px;
   }
 }
 
-.cd-3d-nav {
+.ve-3d-nav {
   /* this is the 3D rotating navigation */
   position: relative;
   height: 100%;
@@ -186,7 +186,7 @@ Main Components
   -moz-transition: -moz-transform 0.5s;
   transition: transform 0.5s;
 }
-.cd-3d-nav::after {
+.ve-3d-nav::after {
   /* menu dark cover layer - to enhance perspective effect */
   content: '';
   position: absolute;
@@ -201,20 +201,23 @@ Main Components
   -moz-transition: opacity 0.5s 0s, visibility 0.5s 0s;
   transition: opacity 0.5s 0s, visibility 0.5s 0s;
 }
-.cd-3d-nav li {
+.ve-3d-nav li {
   height: 100%;
   float: left;
 }
-.cd-3d-nav a {
+.ve-3d-nav a {
+  text-align: center;
   position: relative;
   display: block;
-  height: 100%;
-  color: transparent;
+  height: 100%;  
   -webkit-transition: background-color 0.2s;
   -moz-transition: background-color 0.2s;
   transition: background-color 0.2s;
 }
-.cd-3d-nav a::before {
+.nav-is-visible .ve-3d-nav a span{
+  display: none;
+}
+.ve-3d-nav a::before {
   /* navigation icons */
   content: '';
   height: 32px;
@@ -233,26 +236,26 @@ Main Components
   background-repeat: no-repeat;
   background-position: 0 0;
 }
-.cd-3d-nav a:hover {
+.ve-3d-nav a:hover {
   background-color: #2b3145;
 }
-.cd-3d-nav .cd-selected a {
+.ve-3d-nav .current a {
   background-color: #212635;
 }
-.no-touch .cd-3d-nav .cd-selected a:hover {
+.no-touch .ve-3d-nav .current a:hover {
   background-color: #212635;
 }
-.cd-3d-nav .cd-selected a::before {
+.ve-3d-nav .current a::before {
   background-position: 0 -32px;
 }
-.nav-is-visible .cd-3d-nav {
+.nav-is-visible .ve-3d-nav {
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
   -ms-transform: translateZ(0);
   -o-transform: translateZ(0);
   transform: translateZ(0);
 }
-.nav-is-visible .cd-3d-nav::after {
+.nav-is-visible .ve-3d-nav::after {
   /* menu cover layer - hide it when navigation is visible */
   opacity: 0;
   visibility: hidden;
@@ -260,15 +263,14 @@ Main Components
   -moz-transition: opacity 0.5s 0s, visibility 0s 0.5s;
   transition: opacity 0.5s 0s, visibility 0s 0.5s;
 }
-.nav-is-visible .cd-3d-nav a i{
-      margin-bottom: 15px;
-}
-.nav-is-visible .cd-3d-nav a span{
-  display: block;
-  width: 100%;
+.nav-is-visible .ve-3d-nav a i{    
+    margin: auto;
+    line-height: 80px;
+    color: #fff;
+    font-size: 30px;
 }
 @media only screen and (min-width: 768px) {
-  .cd-3d-nav a {
+  .ve-3d-nav a {
     padding: 3.6em 1em 0;
     color: #ffffff;
     font-size: 1.3rem;
@@ -284,7 +286,7 @@ Main Components
     vertical-align: baseline;
     text-decoration: none;
   }
-  .cd-3d-nav a::before {
+  .ve-3d-nav a::before {
     top: 4.4em;
     left: 50%;
     right: auto;
@@ -294,15 +296,22 @@ Main Components
     -o-transform: translateX(-50%);
     transform: translateX(-50%);
   }
+  .nav-is-visible .ve-3d-nav a span{
+    display: block;
+  }
+  .nav-is-visible .ve-3d-nav a i{    
+    margin-bottom: 15px;
+    line-height: inherit;
+    font-size: inherit;
+  }
 }
 
 .cd-marker {
   /* line at the bottom of nav selected item */
   position: absolute;
   bottom: 0;
-  left: 0;
-  height: 3px;
-  width: 20%;
+  left: initial !important;
+  height: 3px;  
   -webkit-transform-origin: center bottom;
   -moz-transform-origin: center bottom;
   -ms-transform-origin: center bottom;
@@ -316,6 +325,8 @@ Main Components
   -webkit-transition: -webkit-transform 0.5s, left 0.5s, color 0.5s, background-color 0.5s;
   -moz-transition: -moz-transform 0.5s, left 0.5s, color 0.5s, background-color 0.5s;
   transition: transform 0.5s, left 0.5s, color 0.5s, background-color 0.5s;
+  color: #9a57bd;
+  background-color: #9a57bd;
 }
 .cd-marker::before {
   /* triangle at the bottom of nav selected item */
@@ -340,32 +351,6 @@ Main Components
   -ms-transform: translateZ(0);
   -o-transform: translateZ(0);
   transform: translateZ(0);
-}
-
-/* these are the colors of the markers - line + arrow */
-.color-1 {
-  color: #9a57bd;
-  background-color: #9a57bd;
-}
-
-.color-2 {
-  color: #c96aa4;
-  background-color: #c96aa4;
-}
-
-.color-3 {
-  color: #d6915e;
-  background-color: #d6915e;
-}
-
-.color-4 {
-  color: #5397c7;
-  background-color: #5397c7;
-}
-
-.color-5 {
-  color: #77cd91;
-  background-color: #77cd91;
 }
 
 main {
