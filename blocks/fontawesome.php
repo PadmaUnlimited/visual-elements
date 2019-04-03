@@ -1444,7 +1444,7 @@ class PadmaVisualElementsFontAwesomeBlock extends PadmaBlockAPI {
 	public static function fontawesome_admin_scripts() {
 
 		$path = str_replace('/blocks', '', plugin_dir_url( __FILE__ ));		
-		wp_register_script( 'padma_fontawesome_script', $path . 'visual-elements-fontawesome.js');
+		wp_register_script( 'padma_fontawesome_script', $path . 'js/visual-elements-fontawesome.js');
         wp_enqueue_script( 'padma_fontawesome_script' );
 	}
 	
