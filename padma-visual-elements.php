@@ -25,8 +25,7 @@ function register_visual_elements() {
 	 *
 	 */
 	
-	$blocks = array(
-		'3dnav' => 'PadmaVisualElementsBlock3dNav',
+	$blocks = array(		
 		'accordion' => 'PadmaVisualElementsBlockAccordion',
 		'box' => 'PadmaVisualElementsBlockBox',
 		'button' => 'PadmaVisualElementsBlockButton',
