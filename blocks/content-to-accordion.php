@@ -47,6 +47,7 @@ class PadmaVisualElementsBlockContentToAccordionOptions extends PadmaBlockOption
 				'label' => 'Icon',
 				'default' => 'plus',
 				'options' => array(
+					''	=> '',
 					'plus' => 'Plus',
 					'plus-cicle' => 'Plus-cicle',
 					'plus-square-1' => 'Plus-square-1',
