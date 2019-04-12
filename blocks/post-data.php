@@ -98,75 +98,75 @@ class PadmaVisualElementsBlockPostData extends PadmaBlockAPI {
 	public function setup_elements() {
 
 		$this->register_block_element(array(
-			'id' => 'title',
-			'name' => 'Title',
-			'selector' => '.su-postdata',			
-		));
-
-		$this->register_block_element(array(
-			'id' => 'title',
-			'name' => 'Title',
-			'selector' => '.su-postdata',			
-		));
-
-		$this->register_block_element(array(
 			'id' => 'content',
 			'name' => 'Content',
-			'selector' => 'div.su-postdata-content',
+			'selector' => '.ve-postdata',			
 		));
 
 		$this->register_block_element(array(
-			'id' => 'content-text',
-			'name' => 'Content text',
-			'selector' => '.su-postdata-content p',
+			'id' => 'text',
+			'name' => 'Text',
+			'selector' => '.ve-postdata p',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'content-h1',
 			'name' => 'Content h1',
-			'selector' => '.su-postdata-content h1',
+			'selector' => '.ve-postdata h1',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'content-h2',
 			'name' => 'Content h2',
-			'selector' => '.su-postdata-content h2',
+			'selector' => '.ve-postdata h2',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'content-h3',
 			'name' => 'Content h3',
-			'selector' => '.su-postdata-content h3',
+			'selector' => '.ve-postdata h3',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'content-h4',
 			'name' => 'Content h4',
-			'selector' => '.su-postdata-content h4',
+			'selector' => '.ve-postdata h4',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'content-h5',
 			'name' => 'Content h5',
-			'selector' => '.su-postdata-content h5',
+			'selector' => '.ve-postdata h5',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'content-h6',
 			'name' => 'Content h6',
-			'selector' => '.su-postdata-content h6',
+			'selector' => '.ve-postdata h6',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'content-li',
 			'name' => 'Content li',
-			'selector' => '.su-postdata-content li',
+			'selector' => '.ve-postdata li',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'content-a',
 			'name' => 'Content link',
-			'selector' => '.su-postdata-content a',
+			'selector' => '.ve-postdata a',
+		));
+
+		$this->register_block_element(array(
+			'id' => 'content-image',
+			'name' => 'Content image',
+			'selector' => '.ve-postdata image',
+		));
+
+		$this->register_block_element(array(
+			'id' => 'content-figure',
+			'name' => 'Content figure',
+			'selector' => '.ve-postdata figure',
 		));
 
 	}
@@ -200,7 +200,7 @@ class PadmaVisualElementsBlockPostData extends PadmaBlockAPI {
 
 
 		$shortcode = '[su_post field="'.$field.'" post_id="'.$post_id.'"]';
-		$html = '<div>'.do_shortcode( $shortcode ).'</div>';
+		$html = '<div class="ve-postdata">'.do_shortcode( $shortcode ).'</div>';
 		
 		echo $html;
 		
