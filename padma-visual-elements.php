@@ -42,6 +42,7 @@ function register_visual_elements() {
 		'heading' => 'PadmaVisualElementsBlockHeading',
 		'label' => 'PadmaVisualElementsBlockLabel',
 		'lightbox' => 'PadmaVisualElementsBlockLightbox',
+		'post-data' => 'PadmaVisualElementsBlockPostData',
 		'spacer' => 'PadmaVisualElementsBlockSpacer',
 		'spoiler' => 'PadmaVisualElementsBlockSpoiler',
 		'tabs' => 'PadmaVisualElementsBlockTabs',
@@ -51,6 +52,7 @@ function register_visual_elements() {
 	);
 
 	foreach ($blocks as $file => $class) {
+			
 		require_once 'blocks/'.$file.'.php';
 		padma_register_block($class, substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1));	
 	}
