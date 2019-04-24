@@ -19,7 +19,7 @@ function register_visual_elements() {
 	if (!class_exists('PadmaBlockAPI') )
 		return;
 
-	if ( version_compare(PADMA_VERSION, '1.0.1') ){
+	if ( version_compare(PADMA_VERSION, '1.0.1','<') ){
 			
 		add_action( 'admin_notices', function() {
 		    ?>
