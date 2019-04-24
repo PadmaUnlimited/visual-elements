@@ -353,7 +353,7 @@ class PadmaVisualElementsBlockContentToCards extends PadmaBlockAPI {
 		$html .= '<ul>';
 		foreach ($posts as $key => $post) {
 
-			debug($post);
+			//debug($post);
 			$id 	= $post->ID;
 			$image 	= get_the_post_thumbnail_url($post->ID);
 			$desc	= $post->post_excerpt;
