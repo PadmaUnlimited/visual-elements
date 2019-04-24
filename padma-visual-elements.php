@@ -17,7 +17,20 @@ function register_visual_elements() {
 		return;
 
 	if (!class_exists('PadmaBlockAPI') )
-		return false;
+		return;
+
+	if ( version_compare(PADMA_VERSION, '1.0.1') ){
+			
+		add_action( 'admin_notices', function() {
+		    ?>
+		    <div class="notice notice-warning is-dismissible">
+		        <p><?php _e( 'Padma Visual Elements requires Padma 1.0.1 or higher.', 'padma-visual-elements' ); ?></p>
+		    </div>
+		    <?php
+		} );
+
+		return;
+	}
 	
 	/**
 	 *
