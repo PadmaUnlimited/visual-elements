@@ -55,6 +55,7 @@ function register_visual_elements() {
 		'heading' => 'PadmaVisualElementsBlockHeading',
 		'label' => 'PadmaVisualElementsBlockLabel',
 		'lightbox' => 'PadmaVisualElementsBlockLightbox',
+		'portfolio' => 'PadmaVisualElementsBlockPortfolio',
 		'post-data' => 'PadmaVisualElementsBlockPostData',
 		'spacer' => 'PadmaVisualElementsBlockSpacer',
 		'spoiler' => 'PadmaVisualElementsBlockSpoiler',
