@@ -453,19 +453,28 @@ class PadmaVisualElementsBlockPortfolio extends PadmaBlockAPI {
 		));
 
 		$this->register_block_element(array(
-			'id' => 'portfolio-filter item',
+			'id' => 'portfolio-filter-item',
+			'parent' => 'portfolio-filter',
 			'name' => 'Filter item',
 			'selector' => '.portfolio-filter li',
 		));
 
 		$this->register_block_element(array(
-			'id' => 'portfolio-filter link',
+			'id' => 'portfolio-filter-link',
+			'parent' => 'portfolio-filter',
 			'name' => 'Filter link',
 			'selector' => '.portfolio-filter li a',
 			'states' => array(
 				'Hover' => '.portfolio-filter li a:hover', 
 				'Clicked' => '.portfolio-filter li a:active'
 			)
+		));
+
+		$this->register_block_element(array(
+			'id' => 'portfolio-active-item',
+			'parent' => 'portfolio-filter',
+			'name' => 'Active item',
+			'selector' => '.portfolio-filter li.activeFilter a',			
 		));
 
 		$this->register_block_element(array(
@@ -476,108 +485,126 @@ class PadmaVisualElementsBlockPortfolio extends PadmaBlockAPI {
 
 		$this->register_block_element(array(
 			'id' => 'article',
+			'parent' => 'portfolio',
 			'name' => 'Article',
 			'selector' => '.portfolio article',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'image',
+			'parent' => 'portfolio',
 			'name' => 'Image',
 			'selector' => '.portfolio .portfolio-image',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'left-icon',
+			'parent' => 'portfolio',
 			'name' => 'Left icon',
 			'selector' => '.portfolio .portfolio-image .left-icon',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'right-icon',
+			'parent' => 'portfolio',
 			'name' => 'Right icon',
 			'selector' => '.portfolio .portfolio-image .right-icon',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'portfolio-desc',
+			'parent' => 'portfolio',
 			'name' => 'Description container',
 			'selector' => '.portfolio .portfolio-desc',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'title',
+			'parent' => 'portfolio',
 			'name' => 'Article title',
 			'selector' => '.portfolio .portfolio-desc h3',
 		));
 		
 		$this->register_block_element(array(
 			'id' => 'content',
+			'parent' => 'portfolio',
 			'name' => 'Content',
 			'selector' => '.portfolio .portfolio-desc .description',
 		));
 		
 		$this->register_block_element(array(
 			'id' => 'content-h1',
+			'parent' => 'portfolio',
 			'name' => 'Content H1',
 			'selector' => '.portfolio .portfolio-desc .description h1',
 		));
 		
 		$this->register_block_element(array(
 			'id' => 'content-h2',
+			'parent' => 'portfolio',
 			'name' => 'Content H2',
 			'selector' => '.portfolio .portfolio-desc .description h2',
 		));
 		
 		$this->register_block_element(array(
 			'id' => 'content-h3',
+			'parent' => 'portfolio',
 			'name' => 'Content H3',
 			'selector' => '.portfolio .portfolio-desc .description h3',
 		));
 		
 		$this->register_block_element(array(
 			'id' => 'content-h4',
+			'parent' => 'portfolio',
 			'name' => 'Content H4',
 			'selector' => '.portfolio .portfolio-desc .description h4',
 		));
 		
 		$this->register_block_element(array(
 			'id' => 'content-h5',
+			'parent' => 'portfolio',
 			'name' => 'Content H5',
 			'selector' => '.portfolio .portfolio-desc .description h5',
 		));
 		
 		$this->register_block_element(array(
 			'id' => 'content-h6',
+			'parent' => 'portfolio',
 			'name' => 'Content H6',
 			'selector' => '.portfolio .portfolio-desc .description h6',
 		));
 		
 		$this->register_block_element(array(
 			'id' => 'content-p',
+			'parent' => 'portfolio',
 			'name' => 'Content p',
 			'selector' => '.portfolio .portfolio-desc .description p',
 		));
 		
 		$this->register_block_element(array(
 			'id' => 'content-a',
+			'parent' => 'portfolio',
 			'name' => 'Content a',
 			'selector' => '.portfolio .portfolio-desc .description a',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'content-ul',
+			'parent' => 'portfolio',
 			'name' => 'Content ul',
 			'selector' => '.portfolio .portfolio-desc .description ul',
 		));
 
 		$this->register_block_element(array(
 			'id' => 'content-ul-li',
+			'parent' => 'portfolio',
 			'name' => 'Content ul li',
 			'selector' => '.portfolio .portfolio-desc .description ul li',
 		));
 		
 		$this->register_block_element(array(
 			'id' => 'button',
+			'parent' => 'portfolio',
 			'name' => 'Button',
 			'selector' => '.portfolio .portfolio-desc .button',
 			'states' => array(
@@ -633,7 +660,7 @@ class PadmaVisualElementsBlockPortfolio extends PadmaBlockAPI {
 					
 				$action_text = strtolower($category);
 				$action_text = preg_replace('/\s+/', '-', $action_text);
-				$html .= '<li><a href="#" data-filter=".pf-'.$action_text.'">'.$category.'</a></li>';
+				$html .= '<li><a data-filter=".pf-'.$action_text.'">'.$category.'</a></li>';
 
 			}
 

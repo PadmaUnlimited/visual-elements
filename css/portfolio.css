@@ -28,6 +28,7 @@
 	line-height: 15px;
 	color: #666;
 	border-left: 1px solid rgba(0,0,0,0.07);
+	cursor: pointer;
 }
 
 .portfolio-filter li:first-child a {
@@ -129,12 +130,12 @@
 	background-color: transparent;
 	margin: 0;
 }
-
+/*
 .portfolio-filter.style-4 li.activeFilter a:after {
 	width: 100%;
 	left: 0%;
 	background-color: #1ABC9C;
-}
+}*/
 
 
 /* Portfolio - Center Aligned
