@@ -11,49 +11,6 @@ class PadmaVisualElementsBlockPortfolioOptions extends PadmaBlockOptionsAPI {
 		
 	);
 
-	/*
-		Filter 
-			yes/no
-			
-			Filter styles
-				style 1-4
-
-
-		Columns
-			1-6
-
-		Alternar lados ( portfolio-1-alt.html )
-			yes/no
-
-		Image full width (solo con 1 columna)
-			yes/no
-
-		Masonry
-			yes/no
-
-		Margin
-			yes/no
-
-		Masonry - title-overlay (sólo con masonry)
-			yes/no
-
-		Mixed Masonry  (sólo con masonry)
-			yes/no
-
-		Title position
-			Default
-			No title
-			Overlay
-
-		Style 1-4
-		Center Aligned yes/no
-		Shuffle Icon yes/no
-		show Title yes/no
-		No Margin yes/no
-		Full Width yes/no
-		Sidebar yes/no
-		Sidebar yes/no
-	*/
 	public $inputs = array(
 
 		'general' => array(
@@ -66,7 +23,82 @@ class PadmaVisualElementsBlockPortfolioOptions extends PadmaBlockOptionsAPI {
 				'unit' => null,
 				'default' => 4,
 				'slider-min' => 1,
-				'slider-max' => 6
+				'slider-max' => 6,
+				'toggle'   => array(
+					'1' => array(
+						'show' => array(
+							'#input-alternate-content',
+							'#input-full-width-image',
+							'#input-show-open-button',
+							'#input-open-button-text',
+						),
+						'hide' => array(
+							'#input-title-overlay',
+							'#input-show-margin',
+						)
+
+					),
+					'2' => array(
+						'show' => array(
+							'#input-title-overlay',
+							'#input-show-margin',
+						),
+						'hide' => array(
+							'#input-alternate-content',
+							'#input-full-width-image',
+							'#input-show-open-button',
+							'#input-open-button-text',
+						),
+					),		
+					'3' => array(
+						'show' => array(
+							'#input-title-overlay',
+							'#input-show-margin',
+						),
+						'hide' => array(
+							'#input-alternate-content',
+							'#input-full-width-image',
+							'#input-show-open-button',
+							'#input-open-button-text',
+						),
+					),		
+					'4' => array(
+						'show' => array(
+							'#input-title-overlay',
+							'#input-show-margin',
+						),
+						'hide' => array(
+							'#input-alternate-content',
+							'#input-full-width-image',
+							'#input-show-open-button',
+							'#input-open-button-text',
+						),
+					),		
+					'5' => array(
+						'show' => array(
+							'#input-title-overlay',
+							'#input-show-margin',
+						),
+						'hide' => array(
+							'#input-alternate-content',
+							'#input-full-width-image',
+							'#input-show-open-button',
+							'#input-open-button-text',
+						),
+					),
+					'6' => array(
+						'show' => array(
+							'#input-title-overlay',
+							'#input-show-margin',
+						),
+						'hide' => array(
+							'#input-alternate-content',
+							'#input-full-width-image',
+							'#input-show-open-button',
+							'#input-open-button-text',
+						),
+					),					
+				),
 			),
 
 			'show-filter' => array(
@@ -94,6 +126,7 @@ class PadmaVisualElementsBlockPortfolioOptions extends PadmaBlockOptionsAPI {
 					),
 				),
 			),
+
 			'filter-style' => array(
 				'name' => 'filter-style',
 				'label' => 'Filter style',
@@ -107,6 +140,7 @@ class PadmaVisualElementsBlockPortfolioOptions extends PadmaBlockOptionsAPI {
 				),
 				'tooltip' => 'Select filter style',				
 			),
+
 			'show-all-text' => array(
 				'name' => 'show-all-text',
 				'label' => 'Show All text',
@@ -114,6 +148,89 @@ class PadmaVisualElementsBlockPortfolioOptions extends PadmaBlockOptionsAPI {
 				'default' => 'Show All',				
 				'tooltip' => 'Default text for "Show all" button',				
 			),
+
+			'show-margin' => array(
+				'name' => 'show-margin',
+				'label' => 'Show margin',
+				'type' => 'select',
+				'default' => 'yes',
+				'options' => array(
+					'yes' => 'Yes',
+					'no'	=> 'No',
+				),
+				'tooltip' => 'Show margin',
+			),
+
+			'alternate-content' => array(
+				'name' => 'alternate-content',
+				'label' => 'Alternate content and image',
+				'type' => 'select',
+				'default' => 'no',
+				'options' => array(
+					'yes' => 'Yes',
+					'no'	=> 'No',
+				),
+				'tooltip' => 'Alternate content and image',
+			),
+
+			'full-width-image' => array(
+				'name' => 'full-width-image',
+				'label' => 'Show full width image',
+				'type' => 'select',
+				'default' => 'no',
+				'options' => array(
+					'yes' => 'Yes',
+					'no'	=> 'No',
+				),
+				'tooltip' => 'Show full width image',
+			),
+
+			'title-overlay' => array(
+				'name' => 'title-overlay',
+				'label' => 'Title overlay',
+				'type' => 'select',
+				'default' => 'no',
+				'options' => array(
+					'yes' => 'Yes',
+					'no'	=> 'No',
+				),
+				'tooltip' => 'Show title over the image',
+			),
+
+			'show-open-button' => array(
+				'name' => 'show-open-button',
+				'label' => 'Show open button',
+				'type' => 'select',
+				'default' => 'no',
+				'options' => array(
+					'yes' => 'Yes',
+					'no'	=> 'No',
+				),
+				'tooltip' => 'Show open button',
+			),
+
+			'open-button-text' => array(
+				'name' => 'open-button-text',
+				'label' => 'Open button text',
+				'type' => 'text',
+				'default' => 'Open article',
+				'tooltip' => 'Default text for open article button',				
+			),
+
+			/*
+			'mode' => array(
+				'name' => 'mode',
+				'label' => 'Layout mode',
+				'type' => 'select',
+				'default' => 'masonry',
+				'options' => array(
+					'masonry' => 'Masonry',
+					'fitRows' => 'Fit rows',
+					'vertical' => 'Vertical',
+				),
+				'tooltip' => 'Layout mode',
+			),*/
+
 
 
 		),
@@ -248,7 +365,20 @@ class PadmaVisualElementsBlockPortfolioOptions extends PadmaBlockOptionsAPI {
 				'name' => 'byid-exclude',
 				'label' => 'Exclude by ID',
 				'tooltip' => 'In both Include and Exclude by ID, you use a comma separated list of IDs of your post type.'
-			)
+			),
+
+			'content-to-show' => array(
+				'type' => 'select',
+				'name' => 'content-to-show',
+				'label' => 'Content To Show',
+				'options' => array(
+					'none' => '&ndash; Do Not Show Content &ndash;',
+					'excerpt' => 'Excerpts',
+					'content' => 'Full Content'
+				),
+				'default' => 'excerpt',
+				'tooltip' => 'The content is the written text or HTML for the entry.  This is edited in the WordPress or ClassicPress admin panel.'
+			),
 		),
 			
 		
@@ -293,12 +423,169 @@ class PadmaVisualElementsBlockPortfolio extends PadmaBlockAPI {
 	public $description 	= 'Allows you to create blocks with hidden posts content. Hidden content will be shown when block title will be clicked. You can specify different icons or even use different styles for each spoiler.';
 	public $categories 		= array('box','content','dynamic-content');
 	
-	public function init() {
-		
-	}
 	
-	public function setup_elements() {
+	public function init() {
+
+	}
+
+	public static function portfolio_admin_styles() {
+
+	}
+	public static function portfolio_admin_scripts() {
+
+		if ( !$block )
+			$block = PadmaBlocksData::get_block($block_id);
 		
+		$path = str_replace('/blocks', '', plugin_dir_url( __FILE__ ));	
+
+        /* JS */
+		wp_enqueue_script( 'padma-ve-isotope', $path . 'js/isotope.js', array( 'jquery' ) );
+		wp_enqueue_script( 'padma-ve-portfolio', $path . 'js/portfolio.js', array( 'jquery', 'padma-ve-isotope' ) );
+
+	}
+
+	public function setup_elements() {
+
+		$this->register_block_element(array(
+			'id' => 'portfolio-filter',
+			'name' => 'Filter',
+			'selector' => '.portfolio-filter',
+		));
+
+		$this->register_block_element(array(
+			'id' => 'portfolio-filter item',
+			'name' => 'Filter item',
+			'selector' => '.portfolio-filter li',
+		));
+
+		$this->register_block_element(array(
+			'id' => 'portfolio-filter link',
+			'name' => 'Filter link',
+			'selector' => '.portfolio-filter li a',
+			'states' => array(
+				'Hover' => '.portfolio-filter li a:hover', 
+				'Clicked' => '.portfolio-filter li a:active'
+			)
+		));
+
+		$this->register_block_element(array(
+			'id' => 'portfolio',
+			'name' => 'Portfolio',
+			'selector' => '.portfolio',
+		));
+
+		$this->register_block_element(array(
+			'id' => 'article',
+			'name' => 'Article',
+			'selector' => '.portfolio article',
+		));
+
+		$this->register_block_element(array(
+			'id' => 'image',
+			'name' => 'Image',
+			'selector' => '.portfolio .portfolio-image',
+		));
+
+		$this->register_block_element(array(
+			'id' => 'left-icon',
+			'name' => 'Left icon',
+			'selector' => '.portfolio .portfolio-image .left-icon',
+		));
+
+		$this->register_block_element(array(
+			'id' => 'right-icon',
+			'name' => 'Right icon',
+			'selector' => '.portfolio .portfolio-image .right-icon',
+		));
+
+		$this->register_block_element(array(
+			'id' => 'portfolio-desc',
+			'name' => 'Description container',
+			'selector' => '.portfolio .portfolio-desc',
+		));
+
+		$this->register_block_element(array(
+			'id' => 'title',
+			'name' => 'Article title',
+			'selector' => '.portfolio .portfolio-desc h3',
+		));
+		
+		$this->register_block_element(array(
+			'id' => 'content',
+			'name' => 'Content',
+			'selector' => '.portfolio .portfolio-desc .description',
+		));
+		
+		$this->register_block_element(array(
+			'id' => 'content-h1',
+			'name' => 'Content H1',
+			'selector' => '.portfolio .portfolio-desc .description h1',
+		));
+		
+		$this->register_block_element(array(
+			'id' => 'content-h2',
+			'name' => 'Content H2',
+			'selector' => '.portfolio .portfolio-desc .description h2',
+		));
+		
+		$this->register_block_element(array(
+			'id' => 'content-h3',
+			'name' => 'Content H3',
+			'selector' => '.portfolio .portfolio-desc .description h3',
+		));
+		
+		$this->register_block_element(array(
+			'id' => 'content-h4',
+			'name' => 'Content H4',
+			'selector' => '.portfolio .portfolio-desc .description h4',
+		));
+		
+		$this->register_block_element(array(
+			'id' => 'content-h5',
+			'name' => 'Content H5',
+			'selector' => '.portfolio .portfolio-desc .description h5',
+		));
+		
+		$this->register_block_element(array(
+			'id' => 'content-h6',
+			'name' => 'Content H6',
+			'selector' => '.portfolio .portfolio-desc .description h6',
+		));
+		
+		$this->register_block_element(array(
+			'id' => 'content-p',
+			'name' => 'Content p',
+			'selector' => '.portfolio .portfolio-desc .description p',
+		));
+		
+		$this->register_block_element(array(
+			'id' => 'content-a',
+			'name' => 'Content a',
+			'selector' => '.portfolio .portfolio-desc .description a',
+		));
+
+		$this->register_block_element(array(
+			'id' => 'content-ul',
+			'name' => 'Content ul',
+			'selector' => '.portfolio .portfolio-desc .description ul',
+		));
+
+		$this->register_block_element(array(
+			'id' => 'content-ul-li',
+			'name' => 'Content ul li',
+			'selector' => '.portfolio .portfolio-desc .description ul li',
+		));
+		
+		$this->register_block_element(array(
+			'id' => 'button',
+			'name' => 'Button',
+			'selector' => '.portfolio .portfolio-desc .button',
+			'states' => array(
+				'Hover' => '.portfolio .portfolio-desc .button:hover', 
+				'Clicked' => '.portfolio .portfolio-desc .button:active'
+			)
+		));
+
 	}
 
 
@@ -307,33 +594,42 @@ class PadmaVisualElementsBlockPortfolio extends PadmaBlockAPI {
 	
 	public function content($block) {
 
-		$html 			= '';
-		$columns 		= parent::get_setting($block, 'columns', 4);
-		$show_filter 	= parent::get_setting($block, 'show-filter', 'no');
-		$filter_style 	= parent::get_setting($block, 'filter-style', 'style-1');
-		$show_all_text 	= parent::get_setting($block, 'show-all-text', 'Show all');
-
-		$posts 				= PadmaQuery::get_posts($block);		
-		$portfolio_style 	= 'portfolio-' . $columns;
+		$html 				= '';
+		$portfolio_classes 	= '';
+		$columns 			= parent::get_setting($block, 'columns', 4);
+		$show_filter 		= parent::get_setting($block, 'show-filter', 'no');
+		$filter_style 		= parent::get_setting($block, 'filter-style', 'style-1');
+		$show_all_text 		= parent::get_setting($block, 'show-all-text', 'Show all');
+		$show_margin 		= parent::get_setting($block, 'show-margin', 'yes');
+		$alternate_content 	= parent::get_setting($block, 'alternate-content', 'yes');
+		$full_width_image 	= parent::get_setting($block, 'full-width-image', 'no');
+		$content_to_show 	= parent::get_setting($block, 'content-to-show', 'excerpt');
+		$mode 				= parent::get_setting($block, 'mode', 'masonry');
+		$title_overlay		= parent::get_setting($block, 'title-overlay', 'no');
+		$show_open_button	= parent::get_setting($block, 'show-open-button', 'no');
+		$open_button_text	= parent::get_setting($block, 'open-button-text', 'Open article');
+		$posts 				= PadmaQuery::get_posts($block);
 
 
 		if($show_filter == 'yes'){
 
 			$html .= '<ul class="portfolio-filter '.$filter_style.' clearfix" data-container="#portfolio">';
 			$html .= '<li class="activeFilter"><a href="#" data-filter="*">'.$show_all_text.'</a></li>';
-
 			
 			$categories_mode = parent::get_setting($block, 'categories-mode', 'include');
 			$categories = parent::get_setting($block, 'categories', array());
 
 			foreach (PadmaQuery::get_categories() as $key => $category) {
 
-				
-				if(!in_array($key, $categories) && $categories_mode == 'include')
-					continue;
-				
-				if(in_array($key, $categories) && $categories_mode == 'exclude')
-					continue;
+				if(count($categories) > 0){
+
+					if(!in_array($key, $categories) && $categories_mode == 'include')
+						continue;
+					
+					if(in_array($key, $categories) && $categories_mode == 'exclude')
+						continue;
+
+				}
 					
 				$action_text = strtolower($category);
 				$action_text = preg_replace('/\s+/', '-', $action_text);
@@ -345,51 +641,110 @@ class PadmaVisualElementsBlockPortfolio extends PadmaBlockAPI {
 			$html .= '<div class="clear"></div>';
 
 		}
+	
+
+		// Columns
+		$portfolio_classes .= 'portfolio-' . $columns;
+
+		// Full Width
+		if($full_width_image == 'yes')
+			$portfolio_classes .= ' portfolio-fullwidth';
+
+		// Layout mode		
+		$data_atts = 'data-layout="' . $mode . '"';
+
+		// No margin
+		if($show_margin !== 'yes')
+			$portfolio_classes .= ' portfolio-nomargin';
 
 
+		$html .= '<div id="portfolio" class="portfolio  '.$portfolio_classes . ' grid-container clearfix" '.$data_atts.'>';
 
-
-
-		$item_class = parent::get_setting($block, 'item-class', '');
-		$style = parent::get_setting($block, 'style', array());
-		$icon = parent::get_setting($block, 'icon', '');
-		$open = parent::get_setting($block, 'open', 0);
-		
-		
-
-		$html .= '<div id="portfolio" class="portfolio  '.$portfolio_style.' grid-container clearfix" style="position: relative; height: 714px;">';
-
+		$alt_counter = 1;
 		foreach ($posts as $key => $post) {
 
-			//debug($post);
 			$id 	= $post->ID;
 			$image 	= get_the_post_thumbnail_url($post->ID);
 			$desc	= $post->post_excerpt;
 			$title	= $post->post_title;
-			$url	= get_post_permalink($post->ID);
+			$url	= get_permalink($post->ID);
 			$date	= date("M d, Y", strtotime($post->post_date));
 			$author	= get_the_author_meta('display_name',$post->post_author);
 
-			$categories = '';
-			foreach (get_the_category($id) as $key => $category) {
-				$categories .= 'pf-' . $category->slug . ' ';
+			switch ($content_to_show) {
+				
+				case 'content':					
+					$shortcode = $post->post_content;
+					break;
+				
+				case 'excerpt':
+					$shortcode = $post->post_excerpt;
+					break;
+				
+				case 'none':
+					$shortcode = '';
+					break;
+				
+				default:
+					$shortcode = $post->post_content;
+					break;
 			}
-			
 
-			$html .= '<article class="portfolio-item '.$categories.'">';
+			
+			// Categories
+			$item_classes = '';
+			foreach (get_the_category($id) as $key => $category) {
+				$item_classes .= ' pf-' . $category->slug;
+			}
+
+			// Alternate content
+			if($alternate_content == 'yes' && ($alt_counter % 2 == 0) && $alt_counter > 1){
+				$item_classes = ' alt';
+			}			
+			++$alt_counter;
+
+
+			/**
+			 *
+			 * Description structure
+			 *
+			 */			
+			$description = '	<div class="portfolio-desc">';
+			$description .= '		<h3><a href="'.$url.'">'.$title.'</a></h3>';
+			
+			if($title_overlay == 'no' || $columns == 1)
+				$description .= '<div class="description">'.do_shortcode($shortcode) .'</div>';
+
+			if($columns == 1 && $show_open_button == 'yes'){
+				$description .= '<a href="'.$url.'" class="button button-3d noleftmargin">'.$open_button_text.'</a>';
+			}			
+
+			$description .= '	</div>';
+
+
+			/**
+			 *
+			 * Article structure
+			 *
+			 */
+			$html .= '<article class="portfolio-item' . $item_classes . '">';
 			$html .= '	<div class="portfolio-image">';
-			$html .= '		<a href="portfolio-single.html">';
+			$html .= '		<a href="'.$url.'">';
 			$html .= '			<img src="'.$image.'" alt="Open Imagination">';
 			$html .= '		</a>';
 			$html .= '		<div class="portfolio-overlay">';
-			$html .= '			<a href="'.$image.'" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>';
-			$html .= '			<a href="'.$url.'" class="right-icon"><i class="icon-line-ellipsis"></i></a>';
+			
+			if($title_overlay == 'yes' && $columns > 1)
+				$html .= $description;
+
+			$html .= '			<a href="'.$image.'" class="left-icon" data-lightbox="image"><i class="fas fa-plus"></i></a>';
+			$html .= '			<a href="'.$url.'" class="right-icon"><i class="fas fa-ellipsis-h"></i></a>';
 			$html .= '		</div>';
 			$html .= '	</div>';
-			$html .= '	<div class="portfolio-desc">';
-			$html .= '		<h3><a href="'.$url.'">'.$title.'</a></h3>';
-			$html .= '		<span><a href="#">Media</a>, <a href="#">Icons</a></span>';
-			$html .= '	</div>';
+
+			if($title_overlay == 'no' || $columns == 1)
+				$html .= $description;
+			
 			$html .= '</article>';	
 
 		}
@@ -412,10 +767,13 @@ class PadmaVisualElementsBlockPortfolio extends PadmaBlockAPI {
 
 		/* JS */
 		wp_enqueue_script( 'padma-ve-isotope', $path . 'js/isotope.js', array( 'jquery' ) );
+		wp_enqueue_script( 'padma-ve-magnific', $path . 'js/jquery.magnific.js', array( 'jquery' ) );
 		wp_enqueue_script( 'padma-ve-portfolio', $path . 'js/portfolio.js', array( 'jquery', 'padma-ve-isotope' ) );
 		
 		/* CSS */		
+		wp_enqueue_style('padma-ve-magnific', $path . 'css/magnific-popup.css');
 		wp_enqueue_style('padma-ve-portfolio', $path . 'css/portfolio.css');
+		wp_enqueue_style('padma-ve-fontawesome', $path . 'css/fontawesome.css');
 	}
 
 	
