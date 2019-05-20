@@ -41,7 +41,7 @@
 .portfolio-filter li a:hover { color: #1ABC9C; }
 
 .portfolio-filter li.activeFilter a {
-	color: #FFF !important;
+	color: #FFF;
 	background-color: #1ABC9C;
 	margin: -1px 0;
 	padding: 13px 18px;
@@ -83,7 +83,7 @@
 }
 
 .portfolio-filter.style-2 li.activeFilter a {
-	color: #FFF !important;
+	color: #FFF;
 	margin: 0;
 }
 
@@ -94,7 +94,7 @@
 .portfolio-filter.style-3 li a { border: 1px solid transparent; }
 
 .portfolio-filter.style-3 li.activeFilter a {
-	color: #1ABC9C !important;
+	color: #1ABC9C;
 	border-color: #1ABC9C;
 	background-color: transparent;
 	margin: 0;
@@ -126,7 +126,7 @@
 }
 
 .portfolio-filter.style-4 li.activeFilter a {
-	color: #444 !important;
+	color: #444;
 	background-color: transparent;
 	margin: 0;
 }

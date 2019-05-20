@@ -487,7 +487,7 @@ class PadmaVisualElementsBlockPortfolio extends PadmaBlockAPI {
 			'id' => 'article',
 			'parent' => 'portfolio',
 			'name' => 'Article',
-			'selector' => '.portfolio article',
+			'selector' => '.portfolio article.portfolio-item',
 		));
 
 		$this->register_block_element(array(
