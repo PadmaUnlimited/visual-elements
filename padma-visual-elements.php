@@ -106,21 +106,3 @@ function padma_visual_elements_activate(){
 	tgmpa( $plugins, $config );
 
 }
-
-
-
-/**
- *
- * Updates control
- *
- */
-if(is_admin()){
-	add_action('after_setup_theme', 'padma_visual_elements_updates');
-    function padma_visual_elements_updates(){
-        if(class_exists('PadmaUpdater')){
-			$PadmaUpdater = new PadmaUpdater();
-			$PadmaUpdater->updater('padma-visual-elements',__DIR__);
-		}
-    }
-}
-

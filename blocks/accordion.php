@@ -149,8 +149,6 @@ class PadmaVisualElementsBlockAccordion extends PadmaBlockAPI {
 
 		foreach ($spoilers as $spoiler => $params) {
 
-			//debug($params);
-
 			$title 		= $params[ 'title-' . $index ];
 			$open 		= $params[ 'open-' . $index ];
 			$style 		= $params[ 'style-' . $index ];			

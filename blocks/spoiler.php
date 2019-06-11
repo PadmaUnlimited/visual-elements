@@ -141,8 +141,6 @@ class PadmaVisualElementsBlockSpoiler extends PadmaBlockAPI {
 		$index = 1;
 		foreach ($spoilers as $spoiler => $params) {
 
-			//debug($params);
-
 			$title 		= $params[ 'title-' . $index ];
 			$open 		= $params[ 'open-' . $index ];
 			$style 		= $params[ 'style-' . $index ];			
