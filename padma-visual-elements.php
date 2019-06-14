@@ -24,7 +24,7 @@ function register_visual_elements() {
 		add_action( 'admin_notices', function() {
 		    ?>
 		    <div class="notice notice-warning is-dismissible">
-		        <p><?php _e( 'Padma Visual Elements requires Padma 1.0.1 or higher.', 'padma-visual-elements' ); ?></p>
+		        <p><?php _e( 'Padma Visual Elements requires Padma 1.1.0 or higher.', 'padma-visual-elements' ); ?></p>
 		    </div>
 		    <?php
 		} );
