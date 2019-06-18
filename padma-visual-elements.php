@@ -3,8 +3,8 @@
 /*
 Plugin Name: Padma Visual Elements
 Plugin URI: https://www.padmaunlimited.com/plugins/visual-elements
-Description: Integration plugin between Shortcodes Ultimate and Padma Unlimited theme
-Version: 1.0.6
+Description: Great Visual Blocks for Visual Editor, also bring integration plugin between Shortcodes Ultimate and Padma Unlimited theme
+Version: 1.0.7
 Author: Padma Unlimited team
 Author URI: https://www.padmaunlimited.com
 License: GNU GPL v2

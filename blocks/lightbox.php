@@ -109,6 +109,8 @@ class PadmaVisualElementsBlockLightbox extends PadmaBlockAPI {
 	public $options_class 	= 'PadmaVisualElementsBlockLightboxOptions';	
 	public $description 	= 'Allows you to display various elements in a pop-up window. You can display an image, a web page, or any HTML content.';
 	public $categories 		= array('content');
+	public $inline_editable = array('block-title', 'block-subtitle', 'su-lightbox');	
+	public $inline_editable_equivalences = array('su-lightbox' => 'title');
 	
 	public function init() {
 
@@ -213,15 +215,15 @@ class PadmaVisualElementsBlockLightbox extends PadmaBlockAPI {
 		$shortcode = '[su_lightbox ';		
 		switch ($type) {
 			case 'image':				
-				$shortcode .= 'type="image" src="'.$image.'"]'.$title.'[/su_lightbox]';
+				$shortcode .= 'type="image" src="'.$image.'" class="title"]'.$title.'[/su_lightbox]';
 				break;
 
 			case 'iframe':
-				$shortcode .= 'type="iframe" src="'.$iframe.'"]'.$title.'[/su_lightbox]';						
+				$shortcode .= 'type="iframe" src="'.$iframe.'" class="title"]'.$title.'[/su_lightbox]';						
 				break;
 
 			case 'inline':							
-				$shortcode .= 'type="inline" src="#'.$block['id'].'"] '.$title.' [/su_lightbox]';
+				$shortcode .= 'type="inline" src="#'.$block['id'].'" class="title"] '.$title.' [/su_lightbox]';
 				$shortcode .= '[su_lightbox_content id="#'.$block['id'].'"]' . $inline . '[/su_lightbox_content]';
 				break;
 			

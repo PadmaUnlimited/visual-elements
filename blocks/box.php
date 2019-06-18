@@ -69,6 +69,8 @@ class PadmaVisualElementsBlockBox extends PadmaBlockAPI {
 	public $options_class 	= 'PadmaVisualElementsBlockBoxOptions';	
 	public $description 	= 'Allows you to create boxes with colorful titles. You can easily change box appearance. Also, you can place any HTML code or even other shortcodes within it.';
 	public $categories 		= array('content');
+	public $inline_editable = array('block-title', 'block-subtitle', 'su-box-title');	
+	public $inline_editable_equivalences = array('su-box-title' => 'title');
 	
 	public function init() {
 
@@ -175,7 +177,7 @@ class PadmaVisualElementsBlockBox extends PadmaBlockAPI {
 		if($radius > 20)
 			$radius = 20;
 
-		$shortcode = '[su_box title="'.$title.'" style="'.$style.'" radius="'.$radius.'"]';
+		$shortcode = '[su_box title="'.$title.'" style="'.$style.'" radius="'.$radius.'" class="title"]';
 		$shortcode .= $content;
 		$shortcode .= '[/su_box]';
 			

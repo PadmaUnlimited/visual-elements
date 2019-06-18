@@ -50,6 +50,8 @@ class PadmaVisualElementsBlockLabel extends PadmaBlockAPI {
 	public $options_class 	= 'PadmaVisualElementsBlockLabelOptions';	
 	public $description 	= 'Will help you to create colourful labels. You can choose among 6 various label colours.';
 	public $categories 		= array('content');
+	public $inline_editable = array('block-title', 'block-subtitle', 'su-label');	
+	public $inline_editable_equivalences = array('su-label' => 'text');
 	
 	public function init() {
 
@@ -87,7 +89,7 @@ class PadmaVisualElementsBlockLabel extends PadmaBlockAPI {
 		if(!$type)
 			$type = 'default';
 
-		echo do_shortcode('[su_label type="'.$type.'"]'.$text.'[/su_label]');
+		echo do_shortcode('[su_label type="'.$type.'" class="text"]'.$text.'[/su_label]');
 
 	}
 

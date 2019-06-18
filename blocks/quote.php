@@ -76,6 +76,8 @@ class PadmaVisualElementsBlockQuote extends PadmaBlockAPI {
 	public $options_class 	= 'PadmaVisualElementsBlockQuoteOptions';	
 	public $description 	= 'Allows you to insert quotes in your content. You can specify quote author and link.';
 	public $categories 		= array('content');
+	public $inline_editable = array('block-title', 'block-subtitle', 'su-quote-inner');	
+	public $inline_editable_equivalences = array('su-quote-inner' => 'quote');
 	
 	public function init() {
 
@@ -140,7 +142,7 @@ class PadmaVisualElementsBlockQuote extends PadmaBlockAPI {
 		$cite = parent::get_setting($block, 'cite');
 		$quote = parent::get_setting($block, 'quote');
 
-		$shortcode = '[su_quote url="'.$url.'" style="'.$style.'" cite="'.$cite.'"]';
+		$shortcode = '[su_quote url="'.$url.'" style="'.$style.'" cite="'.$cite.'" class="quote"]';
 		$shortcode .= $quote;
 		$shortcode .= '[/su_quote]';
 			

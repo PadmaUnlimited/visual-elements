@@ -74,6 +74,8 @@ class PadmaVisualElementsBlockDivider extends PadmaBlockAPI {
 	public $options_class 	= 'PadmaVisualElementsBlockDividerOptions';	
 	public $description 	= 'Allows you to divide page content with styled divider. You can customize colours, hide “Got to top” link and adjust divider size.';
 	public $categories 		= array('content');
+	public $inline_editable = array('block-title', 'block-subtitle', 'su-divider');	
+	public $inline_editable_equivalences = array('su-divider' => 'text');
 	
 	public function init() {
 
@@ -129,7 +131,7 @@ class PadmaVisualElementsBlockDivider extends PadmaBlockAPI {
 		if(!$margin || $margin < 0 || $margin > 200)
 			$margin = 15;
 
-		$html = do_shortcode('[su_divider top="'.$top.'" text="'.$text.'" style="'.$style.'" divider_color="'.$divider_color.'" size="'.$size.'" margin="'.$margin.'"]');
+		$html = do_shortcode('[su_divider top="'.$top.'" text="'.$text.'" style="'.$style.'" divider_color="'.$divider_color.'" size="'.$size.'" margin="'.$margin.'" class="text"]');
 
 		// remove inline CSS for color
 		$html = preg_replace('(style=("|\Z)(.*?)("|\Z))', '', $html);

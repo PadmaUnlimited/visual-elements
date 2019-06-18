@@ -35,6 +35,8 @@ class PadmaVisualElementsBlockHeading extends PadmaBlockAPI {
 	public $options_class 	= 'PadmaVisualElementsBlockHeadingOptions';	
 	public $description 	= 'Allows you to create styled headings with customisable size and margin.';
 	public $categories 		= array('content');
+	public $inline_editable = array('block-title', 'block-subtitle', 'su-heading-inner');	
+	public $inline_editable_equivalences = array('su-heading-inner' => 'heading-text');
 	
 	public function init() {
 

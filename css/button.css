@@ -1,6 +1,9 @@
 .block-type-visual-elements-button .su-button.hide-button i{
 	display: none;
 }
+.block-type-visual-elements-button a.su-button small{
+	margin: 0;
+}
 .block-type-visual-elements-button a.su-button > span > i{
 	margin: auto !important;
 }

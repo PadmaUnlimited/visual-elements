@@ -45,7 +45,7 @@ class PadmaVisualElementsBlockBasicHeading extends PadmaBlockAPI {
 	public $categories 		= array('content', 'basic', 'typography');
 
 	// To allow inline editor
-	public $inline_editable = 'basic-heading';
+	public $inline_editable = array('block-title', 'block-subtitle', 'basic-heading');
 	
 	public function init() {
 
@@ -89,7 +89,7 @@ class PadmaVisualElementsBlockBasicHeading extends PadmaBlockAPI {
 		$text = parent::get_setting($block, 'basic-heading');
 		$tag = parent::get_setting($block, 'tag', 'h1');
 
-		echo '<' . $tag . '>' . $text . '</' . $tag . '>';
+		echo '<' . $tag . ' class="basic-heading" >' . $text . '</' . $tag . '>';
 
 	}
 

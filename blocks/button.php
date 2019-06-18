@@ -96,7 +96,7 @@ class PadmaVisualElementsBlockButton extends PadmaBlockAPI {
 	public $name 			= 'Button';
 	public $options_class 	= 'PadmaVisualElementsBlockButtonOptions';	
 	public $description 	= 'Allows create highly customizable buttons. You can change button style, colors, size, add an icon or description.';
-	public $categories 		= array('content');
+	public $categories 		= array('content');	
 	
 	public function init() {
 
@@ -157,7 +157,7 @@ class PadmaVisualElementsBlockButton extends PadmaBlockAPI {
 		if ($icon && !filter_var($icon, FILTER_VALIDATE_URL))
 			$icon = 'icon:' . $icon;
 
-		$shortcode .= ' icon="'.$icon.'" desc="'.$desc.'" onclick="'.$onclick.'" rel="'.$rel.'" title="'.$title.'"]';
+		$shortcode .= ' icon="'.$icon.'" desc="'.$desc.'" onclick="'.$onclick.'" rel="'.$rel.'" title="'.$title.'" class="desc"]';
 		
 
 		$html = do_shortcode( $shortcode );
