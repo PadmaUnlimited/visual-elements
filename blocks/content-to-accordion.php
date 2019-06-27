@@ -359,7 +359,7 @@ class PadmaVisualElementsBlockContentToAccordion extends PadmaBlockAPI {
 
 		$accordion_class = parent::get_setting($block, 'accordion-class', '');
 		$item_class = parent::get_setting($block, 'item-class', '');
-		$style = parent::get_setting($block, 'style', array());
+		$style = parent::get_setting($block, 'style', 'default');
 		$icon = parent::get_setting($block, 'icon', '');
 		$open = parent::get_setting($block, 'open', 0);
 		
