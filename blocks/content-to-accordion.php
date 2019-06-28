@@ -346,6 +346,11 @@ class PadmaVisualElementsBlockContentToAccordion extends PadmaBlockAPI {
 			'name' => 'Spoiler span',
 			'selector' => '.su-accordion .su-spoiler-content span',
 		));
+		$this->register_block_element(array(
+			'id' => 'spoiler-a',
+			'name' => 'Spoiler link',
+			'selector' => '.su-accordion .su-spoiler-content a',
+		));
 	}
 
 
@@ -373,7 +378,7 @@ class PadmaVisualElementsBlockContentToAccordion extends PadmaBlockAPI {
 			$id 	= $post->ID;
 			$image 	= get_the_post_thumbnail_url($post->ID);
 			$desc	= $post->post_excerpt;
-			$title	= $post->post_title;
+			$title	= apply_filters('padma_ve_content_to_accordion_title', $post->post_title, $post->ID);
 			$url	= get_post_permalink($post->ID);
 			$date	= date("M d, Y", strtotime($post->post_date));
 			$author	= get_the_author_meta('display_name',$post->post_author);

@@ -129,6 +129,91 @@ class PadmaVisualElementsBlockAccordion extends PadmaBlockAPI {
 			'name' => 'spoiler',
 			'selector' => '.su-spoiler',
 		));
+		$this->register_block_element(array(
+			'id' => 'spoiler-title',
+			'name' => 'Spoiler Title',
+			'selector' => '.su-accordion .su-spoiler-title',
+		));
+		$this->register_block_element(array(
+			'id' => 'spoiler-icon',
+			'name' => 'Spoiler icon',
+			'selector' => '.su-accordion .su-spoiler-icon',
+		));		
+		$this->register_block_element(array(
+			'id' => 'spoiler-title',
+			'name' => 'Spoiler Title',
+			'selector' => '.su-accordion .su-spoiler-title',
+		));
+		$this->register_block_element(array(
+			'id' => 'spoiler-content',
+			'name' => 'Spoiler content',
+			'selector' => '.su-accordion .su-spoiler-content',
+		));
+		$this->register_block_element(array(
+			'id' => 'spoiler-content-p',
+			'name' => 'Spoiler content paragraph',
+			'selector' => '.su-accordion .su-spoiler-content p',
+		));
+		$this->register_block_element(array(
+			'id' => 'spoiler-h1',
+			'name' => 'Spoiler h1',
+			'selector' => '.su-accordion .su-spoiler-content h1',
+		));
+		$this->register_block_element(array(
+			'id' => 'spoiler-h2',
+			'name' => 'Spoiler h2',
+			'selector' => '.su-accordion .su-spoiler-content h2',
+		));
+		$this->register_block_element(array(
+			'id' => 'spoiler-h3',
+			'name' => 'Spoiler h3',
+			'selector' => '.su-accordion .su-spoiler-content h3',
+		));
+		$this->register_block_element(array(
+			'id' => 'spoiler-h2',
+			'name' => 'Spoiler h2',
+			'selector' => '.su-accordion .su-spoiler-content h2',
+		));
+		$this->register_block_element(array(
+			'id' => 'spoiler-h4',
+			'name' => 'Spoiler h4',
+			'selector' => '.su-accordion .su-spoiler-content h4',
+		));
+		$this->register_block_element(array(
+			'id' => 'spoiler-h5',
+			'name' => 'Spoiler h5',
+			'selector' => '.su-accordion .su-spoiler-content h5',
+		));
+		$this->register_block_element(array(
+			'id' => 'spoiler-h6',
+			'name' => 'Spoiler h6',
+			'selector' => '.su-accordion .su-spoiler-content h6',
+		));
+		$this->register_block_element(array(
+			'id' => 'spoiler-ul',
+			'name' => 'Spoiler list',
+			'selector' => '.su-accordion .su-spoiler-content ul',
+		));
+		$this->register_block_element(array(
+			'id' => 'spoiler-ol',
+			'name' => 'Spoiler list',
+			'selector' => '.su-accordion .su-spoiler-content ol',
+		));
+		$this->register_block_element(array(
+			'id' => 'spoiler-li',
+			'name' => 'Spoiler list item',
+			'selector' => '.su-accordion .su-spoiler-content li',
+		));
+		$this->register_block_element(array(
+			'id' => 'spoiler-span',
+			'name' => 'Spoiler span',
+			'selector' => '.su-accordion .su-spoiler-content span',
+		));
+		$this->register_block_element(array(
+			'id' => 'spoiler-a',
+			'name' => 'Spoiler link',
+			'selector' => '.su-accordion .su-spoiler-content a',
+		));
 	}
 
 
