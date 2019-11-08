@@ -2,103 +2,109 @@
 
 class PadmaVisualElementsBlockAccordionOptions extends PadmaBlockOptionsAPI {
 	
-	public $tabs = array(
-		'general' 			=> 'General',
-	);
+	public $tabs;
+	public $sets;
+	public $inputs;
 
-	public $sets = array(
-		
-	);
+	public function __construct(){
+		$this->tabs = array(
+			'general' => 'General',
+		);
 
-	public $inputs = array(
-		'general' => array(
-			'accordion-class' => array(
-				'name' => 'accordion-class',
-				'type' => 'text',
-				'label' => 'CSS Accordion Class',
-				'tooltip' => 'Additional CSS class name(s) separated by space(s)'
-			),
-			'spoilers' => array(
-				'type' => 'repeater',
-			 	'name' => 'spoilers',
-			 	'label' => 'Accordion',
-			 	'tooltip' => 'Accordion with hidden content',
-			  	'inputs' => array(
-					array(
-						'type' => 'text',
-						'name' => 'title',
-						'label' => 'Title'
-					),
-
-					array(
-						'type' => 'select',
-						'name' => 'open',
-						'label' => 'Open',
-						'options' => array(
-							'yes' => 'Yes',
-							'no'	=> 'No',
-						),
-						'default' => 'no',
-					),
-					
-					array(
-						'name' => 'style',
-						'type' => 'select',
-						'label' => 'Style',
-						'default' => 'default',
-						'options' => array(
-							'default'		=> 'Default',
-							'fancy'		=> 'Fancy',
-							'simple'		=> 'Simple',
-						),
-						'tooltip' => 'Choose style for this spoiler'
-					),
-
-					array(
-						'name' => 'icon',
-						'type' => 'select',
-						'label' => 'Icon',
-						'default' => 'plus',
-						'options' => array(
-							'plus' => 'Plus',
-							'plus-cicle' => 'Plus-cicle',
-							'plus-square-1' => 'Plus-square-1',
-							'plus-square-2' => 'Plus-square-2',
-							'arrow'	=> 'Arrow',
-							'arrow-circle-1' => 'Arrow-circle-1',
-							'arrow-circle-2' => 'Arrow-circle-1e',
-							'chevron' => 'Chevron',
-							'chevron-circle'=> 'Chevron-circle',
-							'caret' => 'Caret',
-							'caret-square' => 'Caret-square',
-							'folder-1' => 'Folder-1',
-							'folder-2' => 'Folder-2',
-						),
-						'tooltip' => 'Choose style for this spoiler'
-					),
-
-					array(
-						'type' => 'text',
-						'name' => 'anchor',
-						'label' => 'Anchor',
-						'tooltip' => 'You can use unique anchor for this tab to access it with hash in page url. For example: use Hello and then navigate to url like http://example.com/page-url#Hello. This tab will be activated and scrolled in.'
-					),
-
-					array(
-						'type' => 'wysiwyg',
-						'name' => 'content',
-						'label' => 'Content',
-						'default' => null
-					)
+		$this->sets = array(
 			
+		);
+
+		$this->inputs = array(
+			'general' => array(
+				'accordion-class' => array(
+					'name' => 'accordion-class',
+					'type' => 'text',
+					'label' => __('CSS Accordion Class','padma'),
+					'tooltip' => __('Additional CSS class name(s) separated by space(s)','padma')
 				),
-		 	'sortable' => true,
-			'limit' => 100
+				'spoilers' => array(
+					'type' => 'repeater',
+				 	'name' => 'spoilers',
+				 	'label' => __('Accordion','padma'),
+				 	'tooltip' => __('Accordion with hidden content','padma'),
+				  	'inputs' => array(
+						array(
+							'type' => 'text',
+							'name' => 'title',
+							'label' => __('Title','padma')
+						),
+
+						array(
+							'type' => 'select',
+							'name' => 'open',
+							'label' => __('Open','padma'),
+							'options' => array(
+								'yes' => __('Yes','padma'),
+								'no'	=> __('No','padma'),
+							),
+							'default' => 'no',
+						),
+						
+						array(
+							'name' => 'style',
+							'type' => 'select',
+							'label' => __('Style','padma'),
+							'default' => 'default',
+							'options' => array(
+								'default'	=> __('Default','padma'),
+								'fancy'		=> __('Fancy','padma'),
+								'simple'	=> __('Simple','padma'),
+							),
+							'tooltip' => __('Choose style for this spoiler','padma')
+						),
+
+						array(
+							'name' => 'icon',
+							'type' => 'select',
+							'label' => __('Icon','padma'),
+							'default' => 'plus',
+							'options' => array(
+								'plus' => 'Plus',
+								'plus-cicle' => 'Plus-cicle',
+								'plus-square-1' => 'Plus-square-1',
+								'plus-square-2' => 'Plus-square-2',
+								'arrow'	=> 'Arrow',
+								'arrow-circle-1' => 'Arrow-circle-1',
+								'arrow-circle-2' => 'Arrow-circle-1e',
+								'chevron' => 'Chevron',
+								'chevron-circle'=> 'Chevron-circle',
+								'caret' => 'Caret',
+								'caret-square' => 'Caret-square',
+								'folder-1' => 'Folder-1',
+								'folder-2' => 'Folder-2',
+							),
+							'tooltip' => 'Choose style for this spoiler'
+						),
+
+						array(
+							'type' => 'text',
+							'name' => 'anchor',
+							'label' => __('Anchor','padma'),
+							'tooltip' => __('You can use unique anchor for this tab to access it with hash in page url. For example: use Hello and then navigate to url like http://example.com/page-url#Hello. This tab will be activated and scrolled in.','padma')
+						),
+
+						array(
+							'type' => 'wysiwyg',
+							'name' => 'content',
+							'label' => __('Content','padma'),
+							'default' => null
+						)
 				
-			),
-			
-		)
-	);
+					),
+			 	'sortable' => true,
+				'limit' => 100
+					
+				),
+				
+			)
+		);
+	}
 
 
 	public function modify_arguments($args = false) {
@@ -109,12 +115,21 @@ class PadmaVisualElementsBlockAccordionOptions extends PadmaBlockOptionsAPI {
 }
 
 class PadmaVisualElementsBlockAccordion extends PadmaBlockAPI {
+
+	public $id;
+	public $name;
+	public $options_class;
+	public $description;
+	public $categories;
 	
-	public $id 				= 'visual-elements-accordion';	
-	public $name 			= 'Accordion';
-	public $options_class 	= 'PadmaVisualElementsBlockAccordionOptions';	
-	public $description 	= 'Allows you to create blocks with hidden content – spoilers (toggles). Hidden content will be shown when block title will be clicked. You can specify different icons or even use different styles for each spoiler.';
-	public $categories 		= array('box');
+	public function __construct(){
+
+		$this->id = 'visual-elements-accordion';	
+		$this->name = __('Accordion','padma');
+		$this->options_class = 'PadmaVisualElementsBlockAccordionOptions';	
+		$this->description = __('Allows you to create blocks with hidden content – spoilers (toggles). Hidden content will be shown when block title will be clicked. You can specify different icons or even use different styles for each spoiler.','padma');
+		$this->categories = array('box');
+	}
 	
 	public function init() {
 
