@@ -20,7 +20,7 @@ function register_visual_elements() {
 		return;
 
 	
-	if ( version_compare(PADMA_VERSION, '1.1.0') >= 1 ){
+	if ( version_compare(PADMA_VERSION, '1.1.0', '<=') ){
 			
 		add_action( 'admin_notices', function() {
 		    ?>
@@ -73,19 +73,30 @@ function register_visual_elements() {
 		$class_file = __DIR__ . '/blocks/'.$file.'.php';
 		$icons = __DIR__;
 
-		padma_register_block(
-			$class,
-			$block_type_url,
-			$class_file,
-			$icons
-		);
+		if(function_exists('padma_register_block_complex')){
+
+			padma_register_block_complex(
+				$class,
+				$block_type_url,
+				$class_file,
+				$icons
+			);
+
+		}else{
+
+			padma_register_block(
+				$class,
+				$block_type_url
+			);
+
+		}
 
 		/**
 		 *
 		 * Check if there is the Padma Loader
 		 *
 		 */		
-		if ( version_compare(PADMA_VERSION, '1.1.70') <= -1 ){
+		if ( version_compare(PADMA_VERSION, '1.1.70', '<=') ){
 			include_once $class_file;
 		}
 	}
