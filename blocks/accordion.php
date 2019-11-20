@@ -243,6 +243,9 @@ class PadmaVisualElementsBlockAccordion extends PadmaBlockAPI {
 	public function content($block) {
 
 		$accordion_class = parent::get_setting($block, 'accordion-class', array());
+		if( empty($accordion_class) )
+			$accordion_class = '';
+
 		$spoilers = parent::get_setting($block, 'spoilers', array());
 		$shortcode = "[su_accordion class=".$accordion_class."]";
 		$index = 1;

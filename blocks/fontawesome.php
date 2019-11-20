@@ -1418,8 +1418,10 @@ class PadmaVisualElementsFontAwesomeBlock extends PadmaBlockAPI {
 	
 	public function content($block) {		
 		$icon = parent::get_setting($block, 'fa-icon');
-		$icon = explode('_', $icon);
-		echo '<i class="'.$icon[0] .' '.$icon[1].'"></i>';
+		if( !empty($icon) ){
+			$icon = explode('_', $icon);
+			echo '<i class="'.$icon[0] .' '.$icon[1].'"></i>';			
+		}
 
 	}
 

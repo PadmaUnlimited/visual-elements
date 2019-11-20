@@ -4,7 +4,7 @@
 Plugin Name: Padma Visual Elements
 Plugin URI: https://www.padmaunlimited.com/plugins/visual-elements
 Description: Great Visual Blocks for Visual Editor, also bring integration plugin between Shortcodes Ultimate and Padma Unlimited theme
-Version: 1.0.10
+Version: 1.0.11
 Author: Padma Unlimited team
 Author URI: https://www.padmaunlimited.com
 License: GNU GPL v2
@@ -19,7 +19,8 @@ function register_visual_elements() {
 	if (!class_exists('PadmaBlockAPI') )
 		return;
 
-	if ( version_compare(PADMA_VERSION, '1.1.0','<') ){
+	
+	if ( version_compare(PADMA_VERSION, '1.1.0') >= 1 ){
 			
 		add_action( 'admin_notices', function() {
 		    ?>
@@ -68,7 +69,6 @@ function register_visual_elements() {
 
 	foreach ($blocks as $file => $class) {
 			
-		
 		$block_type_url = substr(WP_PLUGIN_URL . '/' . str_replace(basename(__FILE__), '', plugin_basename(__FILE__)), 0, -1);		
 		$class_file = __DIR__ . '/blocks/'.$file.'.php';
 		$icons = __DIR__;
@@ -78,7 +78,16 @@ function register_visual_elements() {
 			$block_type_url,
 			$class_file,
 			$icons
-		);	
+		);
+
+		/**
+		 *
+		 * Check if there is the Padma Loader
+		 *
+		 */		
+		if ( version_compare(PADMA_VERSION, '1.1.70') <= -1 ){
+			include_once $class_file;
+		}
 	}
 
 }

@@ -113,7 +113,7 @@ class PadmaVisualElementsBlockDivider extends PadmaBlockAPI {
 		$text = parent::get_setting($block, 'text');
 		$style = parent::get_setting($block, 'style');
 		$size = parent::get_setting($block, 'size');
-		$margin = parent::get_setting($block, 'margin');
+		$margin = parent::get_setting($block, 'margin');		
 
 		if(!$top)
 			$top = 'yes';
@@ -131,7 +131,7 @@ class PadmaVisualElementsBlockDivider extends PadmaBlockAPI {
 		if(!$margin || $margin < 0 || $margin > 200)
 			$margin = 15;
 
-		$html = do_shortcode('[su_divider top="'.$top.'" text="'.$text.'" style="'.$style.'" divider_color="'.$divider_color.'" size="'.$size.'" margin="'.$margin.'" class="text"]');
+		$html = do_shortcode('[su_divider top="'.$top.'" text="'.$text.'" style="'.$style.'" size="'.$size.'" margin="'.$margin.'" class="text"]');
 
 		// remove inline CSS for color
 		$html = preg_replace('(style=("|\Z)(.*?)("|\Z))', '', $html);
