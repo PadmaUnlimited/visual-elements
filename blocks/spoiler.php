@@ -138,15 +138,15 @@ class PadmaVisualElementsBlockSpoiler extends PadmaBlockAPI {
 
 		$spoilers = parent::get_setting($block, 'spoilers', array());
 		$shortcode = "";
-		$index = 1;
+		
 		foreach ($spoilers as $spoiler => $params) {
 
-			$title 		= $params[ 'title-' . $index ];
-			$open 		= $params[ 'open-' . $index ];
-			$style 		= $params[ 'style-' . $index ];			
-			$icon 		= $params[ 'icon-' . $index ];			
-			$anchor 	= $params[ 'anchor-' . $index ];			
-			$content 	= $params[ 'content-' . $index ];
+			$title 		= isset( $params[ 'title' ] ) ? $params[ 'title' ] : '';
+			$open 		= isset( $params[ 'open' ] ) ? $params[ 'open' ] : '';
+			$style 		= isset( $params[ 'style' ] ) ? $params[ 'style' ] : '';			
+			$icon 		= isset( $params[ 'icon' ] ) ? $params[ 'icon' ] : '';			
+			$anchor 	= isset( $params[ 'anchor' ] ) ? $params[ 'anchor' ] : '';			
+			$content 	= isset( $params[ 'content' ] ) ? $params[ 'content' ] : '';
 			
 			if(is_null($title))
 				$title = 'Title';
@@ -171,7 +171,6 @@ class PadmaVisualElementsBlockSpoiler extends PadmaBlockAPI {
 
 			$shortcode .= $html;
 
-			++$index;
 		}
 
 		echo $shortcode;	

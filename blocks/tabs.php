@@ -205,17 +205,15 @@ class PadmaVisualElementsBlockTabs extends PadmaBlockAPI {
 			$shortcode = '[su_tabs vertical="'.$vertical.'"]';
 		else
 			$shortcode = '[su_tabs]';
-
-		
-		$index = 1;
+				
 		foreach ($tabs as $tab => $params) {
 
-			$title 		= $params[ 'title-' . $index ];
-			$disabled 	= $params[ 'disabled-' . $index ];
-			$anchor 	= $params[ 'anchor-' . $index ];
-			$url 		= $params[ 'url-' . $index ];
-			$target 	= $params[ 'target-' . $index ];
-			$content 	= $params[ 'content-' . $index ];
+			$title 		= isset( $params[ 'title' ] ) ? $params[ 'title' ] : '';
+			$disabled 	= isset( $params[ 'disabled' ] ) ? $params[ 'disabled' ] : '';
+			$anchor 	= isset( $params[ 'anchor' ] ) ? $params[ 'anchor' ] : '';
+			$url 		= isset( $params[ 'url' ] ) ? $params[ 'url' ] : '';
+			$target 	= isset( $params[ 'target' ] ) ? $params[ 'target' ] : '';
+			$content 	= isset( $params[ 'content' ] ) ? $params[ 'content' ] : '';
 			
 			$shortcode .= '[su_tab ';
 			$shortcode .= 'title="'.$title.'" ';
@@ -227,7 +225,6 @@ class PadmaVisualElementsBlockTabs extends PadmaBlockAPI {
 			$shortcode .= $content;
 			$shortcode .= '[/su_tab]';
 
-			++$index;
 		}
 
 		$shortcode .= '[/su_tabs]';

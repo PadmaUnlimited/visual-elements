@@ -53,34 +53,52 @@ class PadmaVisualElementsBlockBasicHeading extends PadmaBlockAPI {
 	
 	public function setup_elements() {
 		$this->register_block_element(array(
-			'id' => 'basic-heading',
+			'id' => 'basic-heading-h1',
 			'name' => 'Basic Heading',
 			'selector' => 'h1',
+			'states' => array(
+				'Hover' => 'h1:hover',
+			)
 		));
 		$this->register_block_element(array(
-			'id' => 'basic-heading',
+			'id' => 'basic-heading-h2',
 			'name' => 'Basic Heading',
 			'selector' => 'h2',
+			'states' => array(
+				'Hover' => 'h2:hover',
+			)
 		));
 		$this->register_block_element(array(
-			'id' => 'basic-heading',
+			'id' => 'basic-heading-h3',
 			'name' => 'Basic Heading',
 			'selector' => 'h3',
+			'states' => array(
+				'Hover' => 'h3:hover',
+			)
 		));
 		$this->register_block_element(array(
-			'id' => 'basic-heading',
+			'id' => 'basic-heading-h4',
 			'name' => 'Basic Heading',
 			'selector' => 'h4',
+			'states' => array(
+				'Hover' => 'h4:hover',
+			)
 		));
 		$this->register_block_element(array(
-			'id' => 'basic-heading',
+			'id' => 'basic-heading-h5',
 			'name' => 'Basic Heading',
 			'selector' => 'h5',
+			'states' => array(
+				'Hover' => 'h5:hover',
+			)
 		));
 		$this->register_block_element(array(
-			'id' => 'basic-heading',
+			'id' => 'basic-heading-h6',
 			'name' => 'Basic Heading',
 			'selector' => 'h6',
+			'states' => array(
+				'Hover' => 'h6:hover',
+			)
 		));
 	}
 

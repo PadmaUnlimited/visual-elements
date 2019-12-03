@@ -119,13 +119,12 @@ class PadmaVisualElementsBlockColumns extends PadmaBlockAPI {
 		$columns = parent::get_setting($block, 'columns', array());
 		$shortcode = '[su_row class=""]';
 		
-		$index = 1;
 		foreach ($columns as $column => $params) {
 
-			$size 		= $params[ 'size-' . $index ];
-			$center 	= $params[ 'center-' . $index ];
-			$class 		= $params[ 'class-' . $index ];			
-			$content 	= $params[ 'content-' . $index ];
+			$size 		= isset( $params[ 'size' ] ) ? $params[ 'size' ] : '';
+			$center 	= isset( $params[ 'center' ] ) ? $params[ 'center' ] : '';
+			$class 		= isset( $params[ 'class' ] ) ? $params[ 'class' ] : '';			
+			$content 	= isset( $params[ 'content' ] ) ? $params[ 'content' ] : '';
 			
 			$shortcode .= '[su_column ';
 			$shortcode .= 'size="'.$size.'" ';
@@ -135,7 +134,6 @@ class PadmaVisualElementsBlockColumns extends PadmaBlockAPI {
 			$shortcode .= $content;
 			$shortcode .= '[/su_column]';
 
-			++$index;
 		}
 
 		$shortcode .= '[/su_row]';
