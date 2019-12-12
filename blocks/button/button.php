@@ -175,10 +175,9 @@ class PadmaVisualElementsBlockButton extends PadmaBlockAPI {
 			$block = PadmaBlocksData::get_block($block_id);
 
 		
-		$path = str_replace('/blocks', '', plugin_dir_url( __FILE__ ));		
+		$path = str_replace('/blocks/button', '', plugin_dir_url( __FILE__ ));		
 		$style = parent::get_setting($block, 'style');
-
-
+		
 		if($style != 'none'){
 
 			/* CSS */		

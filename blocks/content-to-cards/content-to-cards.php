@@ -389,7 +389,7 @@ class PadmaVisualElementsBlockContentToCards extends PadmaBlockAPI {
 		if ( !$block )
 			$block = PadmaBlocksData::get_block($block_id);
 		
-		$path = str_replace('/blocks', '', plugin_dir_url( __FILE__ ));		
+		$path = str_replace('/blocks/content-to-cards', '', plugin_dir_url( __FILE__ ));		
 		
 		/* CSS */		
 		wp_enqueue_style('padma-ve-content-to-cards', $path . 'css/content-to-cards.css');

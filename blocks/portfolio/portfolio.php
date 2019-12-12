@@ -290,7 +290,7 @@ class PadmaVisualElementsBlockPortfolioOptions extends PadmaBlockOptionsAPI {
 				'label' => 'Post Type',
 				'tooltip' => '',
 				'options' => 'get_post_types()',
-				'callback' => 'reloadBlockOptions()'
+				'callback' => 'reloadBlockOptions(block.id)'
 			),
 
 			'post-status' => array(
@@ -391,7 +391,12 @@ class PadmaVisualElementsBlockPortfolioOptions extends PadmaBlockOptionsAPI {
 	}
 	
 	function get_categories() {
-		return PadmaQuery::get_categories();
+
+		if( isset($this->block['settings']['post-type']) )
+			return PadmaQuery::get_categories($this->block['settings']['post-type']);
+		else
+			return array();
+
 	}
 	
 	function get_tags() {
@@ -635,8 +640,8 @@ class PadmaVisualElementsBlockPortfolio extends PadmaBlockAPI {
 		$title_overlay		= parent::get_setting($block, 'title-overlay', 'no');
 		$show_open_button	= parent::get_setting($block, 'show-open-button', 'no');
 		$open_button_text	= parent::get_setting($block, 'open-button-text', 'Open article');
+		$post_type 			= (isset($block['settings']['post-type'])) ? $block['settings']['post-type'] : 'post';
 		$posts 				= PadmaQuery::get_posts($block);
-
 
 		if($show_filter == 'yes'){
 
@@ -646,7 +651,8 @@ class PadmaVisualElementsBlockPortfolio extends PadmaBlockAPI {
 			$categories_mode = parent::get_setting($block, 'categories-mode', 'include');
 			$categories = parent::get_setting($block, 'categories', array());
 
-			foreach (PadmaQuery::get_categories() as $key => $category) {
+
+			foreach (PadmaQuery::get_categories($post_type) as $key => $category) {
 
 				if(count($categories) > 0){
 
@@ -687,8 +693,8 @@ class PadmaVisualElementsBlockPortfolio extends PadmaBlockAPI {
 
 		$html .= '<div id="portfolio" class="portfolio  '.$portfolio_classes . ' grid-container clearfix" '.$data_atts.'>';
 
-		$alt_counter = 1;
-		foreach ($posts as $key => $post) {
+		$alt_counter = 1;		
+		foreach ( $posts as $key => $post ) {
 
 			$id 	= $post->ID;
 			$image 	= get_the_post_thumbnail_url($post->ID);
@@ -720,13 +726,24 @@ class PadmaVisualElementsBlockPortfolio extends PadmaBlockAPI {
 			
 			// Categories
 			$item_classes = '';
-			foreach (get_the_category($id) as $key => $category) {
+
+			if ( $post_type == 'product' || in_array('product', $post_type))
+				$post_categories = wp_get_post_terms( $id, 'product_cat' );
+			else
+				$post_categories = get_the_category( $id );
+
+			debug([
+				$post,
+				$post_type,
+				$post_categories
+			]);
+			foreach ( $post_categories as $key => $category) {				
 				$item_classes .= ' pf-' . $category->slug;
 			}
 
 			// Alternate content
 			if($alternate_content == 'yes' && ($alt_counter % 2 == 0) && $alt_counter > 1){
-				$item_classes = ' alt';
+				$item_classes .= ' alt';
 			}			
 			++$alt_counter;
 
@@ -790,7 +807,7 @@ class PadmaVisualElementsBlockPortfolio extends PadmaBlockAPI {
 		if ( !$block )
 			$block = PadmaBlocksData::get_block($block_id);
 		
-		$path = str_replace('/blocks', '', plugin_dir_url( __FILE__ ));		
+		$path = str_replace('/blocks/portfolio', '', plugin_dir_url( __FILE__ ));
 
 		/* JS */
 		wp_enqueue_script( 'padma-ve-isotope', $path . 'js/isotope.js', array( 'jquery' ) );

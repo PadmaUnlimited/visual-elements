@@ -246,7 +246,7 @@ class PadmaVisualElementsBlockLightbox extends PadmaBlockAPI {
 		if ( !$block )
 			$block = PadmaBlocksData::get_block($block_id);
 		
-		$path = str_replace('/blocks', '', plugin_dir_url( __FILE__ ));		
+		$path = str_replace('/blocks/lightbox', '', plugin_dir_url( __FILE__ ));		
 		
 		/* CSS */		
 		wp_enqueue_style('padma-ve-lightbox', $path . 'css/lightbox.css');

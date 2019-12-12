@@ -1428,7 +1428,7 @@ class PadmaVisualElementsFontAwesomeBlock extends PadmaBlockAPI {
 	public static function enqueue_action($block_id, $block = false) {
 
 		/* CSS */
-		$path = str_replace('/blocks', '', plugin_dir_url( __FILE__ ));
+		$path = str_replace('/blocks/fontawesome', '', plugin_dir_url( __FILE__ ));
 		wp_enqueue_style('padma-ve-fontawesome', $path . 'css/fontawesome.css');
 
 		
@@ -1437,7 +1437,7 @@ class PadmaVisualElementsFontAwesomeBlock extends PadmaBlockAPI {
 	public static function fontawesome_admin_styles() {
 		
 		
-		$path = str_replace('/blocks', '', plugin_dir_url( __FILE__ ));
+		$path = str_replace('/blocks/fontawesome', '', plugin_dir_url( __FILE__ ));
 		wp_register_style( 'padma-ve-fontawesome', $path . 'css/fontawesome.css', false );
         wp_enqueue_style( 'padma-ve-fontawesome' );
 
@@ -1445,7 +1445,7 @@ class PadmaVisualElementsFontAwesomeBlock extends PadmaBlockAPI {
 	
 	public static function fontawesome_admin_scripts() {
 
-		$path = str_replace('/blocks', '', plugin_dir_url( __FILE__ ));		
+		$path = str_replace('/blocks/fontawesome', '', plugin_dir_url( __FILE__ ));		
 		wp_register_script( 'padma_fontawesome_script', $path . 'js/visual-elements-fontawesome.js');
         wp_enqueue_script( 'padma_fontawesome_script' );
 	}
