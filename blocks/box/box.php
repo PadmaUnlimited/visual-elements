@@ -195,10 +195,19 @@ class PadmaVisualElementsBlockBox extends PadmaBlockAPI {
 		if ( !$block )
 			$block = PadmaBlocksData::get_block($block_id);
 		
-		$path = str_replace('/blocks/box', '', plugin_dir_url( __FILE__ ));		
+		$path = str_replace('/blocks/box', '', plugin_dir_path( __FILE__ ));				
+
+		/* CSS */
+		PadmaCompiler::register_file(array(
+			'name' => 've-box-css',
+			'format' => 'css',
+			'fragments' => array(
+				$path . 'css/box.css'
+			),
+			'dependencies' => array(),
+			'enqueue' => true
+		));
 		
-		/* CSS */		
-		wp_enqueue_style('padma-ve-box', $path . 'css/box.css');
 
 	}
 	

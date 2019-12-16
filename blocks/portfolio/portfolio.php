@@ -127,6 +127,20 @@ class PadmaVisualElementsBlockPortfolioOptions extends PadmaBlockOptionsAPI {
 				),
 			),
 
+			'only-categories-with-posts' => array(
+				'name' => 'only-categories-with-posts',
+				'label' => 'Only show categories with posts',
+				'type' => 'select',
+				'default' => 'no',
+				'options' => array(
+					'yes' => 'Yes',
+					'no'	=> 'No',
+				),
+				'tooltip' => 'Select filter style',				
+			),
+
+			
+
 			'filter-style' => array(
 				'name' => 'filter-style',
 				'label' => 'Filter style',
@@ -626,7 +640,7 @@ class PadmaVisualElementsBlockPortfolio extends PadmaBlockAPI {
 	
 	public function content($block) {
 
-		$html 				= '';
+		$html = $html_filter = $html_content = '';
 		$portfolio_classes 	= '';
 		$columns 			= parent::get_setting($block, 'columns', 4);
 		$show_filter 		= parent::get_setting($block, 'show-filter', 'no');
@@ -640,42 +654,12 @@ class PadmaVisualElementsBlockPortfolio extends PadmaBlockAPI {
 		$title_overlay		= parent::get_setting($block, 'title-overlay', 'no');
 		$show_open_button	= parent::get_setting($block, 'show-open-button', 'no');
 		$open_button_text	= parent::get_setting($block, 'open-button-text', 'Open article');
+		$only_categories_with_posts	= parent::get_setting($block, 'only-categories-with-posts', 'no');
 		$post_type 			= (isset($block['settings']['post-type'])) ? $block['settings']['post-type'] : 'post';
 		$posts 				= PadmaQuery::get_posts($block);
+		$categories_in_posts = array();
 
-		if($show_filter == 'yes'){
-
-			$html .= '<ul class="portfolio-filter '.$filter_style.' clearfix" data-container="#portfolio">';
-			$html .= '<li class="activeFilter"><a href="#" data-filter="*">'.$show_all_text.'</a></li>';
-			
-			$categories_mode = parent::get_setting($block, 'categories-mode', 'include');
-			$categories = parent::get_setting($block, 'categories', array());
-
-
-			foreach (PadmaQuery::get_categories($post_type) as $key => $category) {
-
-				if(count($categories) > 0){
-
-					if(!in_array($key, $categories) && $categories_mode == 'include')
-						continue;
-					
-					if(in_array($key, $categories) && $categories_mode == 'exclude')
-						continue;
-
-				}
-					
-				$action_text = strtolower($category);
-				$action_text = preg_replace('/\s+/', '-', $action_text);
-				$html .= '<li><a data-filter=".pf-'.$action_text.'">'.$category.'</a></li>';
-
-			}
-
-			$html .= '</ul>';
-			$html .= '<div class="clear"></div>';
-
-		}
-	
-
+		
 		// Columns
 		$portfolio_classes .= 'portfolio-' . $columns;
 
@@ -691,7 +675,7 @@ class PadmaVisualElementsBlockPortfolio extends PadmaBlockAPI {
 			$portfolio_classes .= ' portfolio-nomargin';
 
 
-		$html .= '<div id="portfolio" class="portfolio  '.$portfolio_classes . ' grid-container clearfix" '.$data_atts.'>';
+		$html_content .= '<div id="portfolio" class="portfolio  '.$portfolio_classes . ' grid-container clearfix" '.$data_atts.'>';
 
 		$alt_counter = 1;		
 		foreach ( $posts as $key => $post ) {
@@ -732,11 +716,12 @@ class PadmaVisualElementsBlockPortfolio extends PadmaBlockAPI {
 			else
 				$post_categories = get_the_category( $id );
 
-			debug([
-				$post,
-				$post_type,
-				$post_categories
-			]);
+
+			// save categories ids to use later
+			foreach ($post_categories as $key => $term) {
+				$categories_in_posts[] = $term->term_id;				
+			}
+			
 			foreach ( $post_categories as $key => $category) {				
 				$item_classes .= ' pf-' . $category->slug;
 			}
@@ -771,29 +756,73 @@ class PadmaVisualElementsBlockPortfolio extends PadmaBlockAPI {
 			 * Article structure
 			 *
 			 */
-			$html .= '<article class="portfolio-item' . $item_classes . '">';
-			$html .= '	<div class="portfolio-image">';
-			$html .= '		<a href="'.$url.'">';
-			$html .= '			<img src="'.$image.'" alt="Open Imagination">';
-			$html .= '		</a>';
-			$html .= '		<div class="portfolio-overlay">';
+			$html_content .= '<article class="portfolio-item' . $item_classes . '">';
+			$html_content .= '	<div class="portfolio-image">';
+			$html_content .= '		<a href="'.$url.'">';
+			$html_content .= '			<img src="'.$image.'" alt="Open Imagination">';
+			$html_content .= '		</a>';
+			$html_content .= '		<div class="portfolio-overlay">';
 			
 			if($title_overlay == 'yes' && $columns > 1)
-				$html .= $description;
+				$html_content .= $description;
 
-			$html .= '			<a href="'.$image.'" class="left-icon" data-lightbox="image"><i class="fas fa-plus"></i></a>';
-			$html .= '			<a href="'.$url.'" class="right-icon"><i class="fas fa-ellipsis-h"></i></a>';
-			$html .= '		</div>';
-			$html .= '	</div>';
+			$html_content .= '			<a href="'.$image.'" class="left-icon" data-lightbox="image"><i class="fas fa-plus"></i></a>';
+			$html_content .= '			<a href="'.$url.'" class="right-icon"><i class="fas fa-ellipsis-h"></i></a>';
+			$html_content .= '		</div>';
+			$html_content .= '	</div>';
 
 			if($title_overlay == 'no' || $columns == 1)
-				$html .= $description;
+				$html_content .= $description;
 			
-			$html .= '</article>';	
+			$html_content .= '</article>';	
+
+		}
+		$html_content .= '</div>';
+
+
+		/**
+		 *
+		 * Filter
+		 *
+		 */
+		
+		if($show_filter == 'yes'){
+
+			$html_filter = '<ul class="portfolio-filter '.$filter_style.' clearfix" data-container="#portfolio">';
+			$html_filter .= '<li class="activeFilter"><a href="#" data-filter="*">'.$show_all_text.'</a></li>';
+			
+			$categories_mode = parent::get_setting($block, 'categories-mode', 'include');
+			$categories = parent::get_setting($block, 'categories', array());
+
+
+			foreach (PadmaQuery::get_categories($post_type) as $category_id => $category) {
+
+				if($only_categories_with_posts == 'yes' && !in_array( $category_id, $categories_in_posts))
+					continue;
+
+				if(count($categories) > 0){
+
+					if(!in_array($category_id, $categories) && $categories_mode == 'include')
+						continue;
+					
+					if(in_array($category_id, $categories) && $categories_mode == 'exclude')
+						continue;
+
+				}
+					
+				$action_text = strtolower($category);
+				$action_text = preg_replace('/\s+/', '-', $action_text);
+				$html_filter .= '<li><a data-filter=".pf-'.$action_text.'">'.$category.'</a></li>';
+
+			}
+
+			$html_filter .= '</ul>';
+			$html_filter .= '<div class="clear"></div>';
 
 		}
 
-		$html .= '</div>';
+		$html .= $html_filter;
+		$html .= $html_content;
 
 		echo $html;
 

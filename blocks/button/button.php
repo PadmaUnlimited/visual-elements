@@ -134,6 +134,10 @@ class PadmaVisualElementsBlockButton extends PadmaBlockAPI {
 		if ( !$block )
 			$block = PadmaBlocksData::get_block($block_id);
 
+		$css = '#block-' . $block_id . ' .su-button small{ opacity: 1 }';
+
+		return $css;
+
 		
 	}
 	
@@ -173,15 +177,22 @@ class PadmaVisualElementsBlockButton extends PadmaBlockAPI {
 
 		if ( !$block )
 			$block = PadmaBlocksData::get_block($block_id);
-
 		
-		$path = str_replace('/blocks/button', '', plugin_dir_url( __FILE__ ));		
+		$path = str_replace('/blocks/button', '', plugin_dir_path( __FILE__ ));				
 		$style = parent::get_setting($block, 'style');
 		
 		if($style != 'none'){
 
-			/* CSS */		
-			wp_enqueue_style('padma-ve-button', $path . 'css/button.css');
+			/* CSS */
+			PadmaCompiler::register_file(array(
+				'name' => 've-button-css',
+				'format' => 'css',
+				'fragments' => array(
+					$path . 'css/button.css'
+				),
+				'dependencies' => array(),
+				'enqueue' => true
+			));
 
 		}
 		
