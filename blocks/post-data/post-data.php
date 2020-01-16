@@ -183,9 +183,12 @@ class PadmaVisualElementsBlockPostData extends PadmaBlockAPI {
 
 		global $post;
 
-		
-		if($post->ID && is_null($_SESSION['ve-postdata-post-id-' . $block['id']])){			
-			$_SESSION['ve-postdata-post-id-' . $block['id']] = $post->ID;
+		$session_id = 've-postdata-post-id-' . $block['id'];
+
+		if( !isset( $_SESSION[ $session_id ] ) && empty( $_SESSION[ $session_id ] ) ){
+			if($post->ID && is_null($_SESSION[ $session_id ])){			
+				$_SESSION['ve-postdata-post-id-' . $block['id']] = $post->ID;
+			}			
 		}
 		
 
