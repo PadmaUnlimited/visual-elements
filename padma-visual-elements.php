@@ -4,7 +4,7 @@
 Plugin Name: Padma Visual Elements
 Plugin URI: https://www.padmaunlimited.com/plugins/visual-elements
 Description: Great Visual Blocks for Visual Editor, also bring integration plugin between Shortcodes Ultimate and Padma Unlimited theme
-Version: 1.0.22
+Version: 1.0.23
 Author: Padma Unlimited team
 Author URI: https://www.padmaunlimited.com
 License: GNU GPL v2
@@ -59,6 +59,7 @@ function register_visual_elements() {
 		'label' => 'PadmaVisualElementsBlockLabel',
 		'lightbox' => 'PadmaVisualElementsBlockLightbox',
 		'portfolio' => 'PadmaVisualElementsBlockPortfolio',
+		'portfolio-cards' => 'PadmaVisualElementsBlockPortfolioCards',
 		'post-data' => 'PadmaVisualElementsBlockPostData',		
 		'spacer' => 'PadmaVisualElementsBlockSpacer',
 		'spoiler' => 'PadmaVisualElementsBlockSpoiler',

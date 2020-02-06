@@ -216,7 +216,10 @@ class PadmaVisualElementsBlockContentToAccordionOptions extends PadmaBlockOption
 	}
 	
 	function get_categories() {
-		return PadmaQuery::get_categories();
+		if( isset($this->block['settings']['post-type']) )
+			return PadmaQuery::get_categories($this->block['settings']['post-type']);
+		else
+			return array();
 	}
 	
 	function get_tags() {

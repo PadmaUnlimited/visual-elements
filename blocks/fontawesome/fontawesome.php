@@ -13,6 +13,19 @@ class PadmaVisualElementsFontAwesomeBlockOptions extends PadmaBlockOptionsAPI {
 
 	public $inputs = array(
 		'general' => array(
+			'before-icon' => array(
+				'name' => 'before-icon',
+				'label' => 'Before icon',
+				'type'	=> 'wysiwyg',
+				'tooltip' => 'Add content before the icon',
+			),
+
+			'after-icon' => array(
+				'name' => 'after-icon',
+				'label' => 'After icon',
+				'type'	=> 'wysiwyg',
+				'tooltip' => 'Add content after the icon',
+			),
 			'filter' => array(
 				'name' => 'filter',
 				'type' => 'raw_html',
@@ -1378,6 +1391,8 @@ class PadmaVisualElementsFontAwesomeBlockOptions extends PadmaBlockOptionsAPI {
 					'fab_fa-zhihu' => '<i class="fab fa-zhihu"></i>',
 				),
 			),
+
+			
 		)
 	);
 
@@ -1404,7 +1419,160 @@ class PadmaVisualElementsFontAwesomeBlock extends PadmaBlockAPI {
 	}
 	
 	public function setup_elements() {
+		$this->register_block_element(array(
+			'id' => 'block-content',
+			'name' => 'Block content',
+			'selector' => '.block-content',
+		));
+		$this->register_block_element(array(
+			'id' => 'icon',
+			'name' => 'Icon',
+			'selector' => '.block-content i',
+		));
 
+		// Before icon
+		$this->register_block_element(array(
+			'id' => 'before-icon',
+			'name' => 'Before Icon',
+			'selector' => '.before-icon',
+		));
+		$this->register_block_element(array(
+			'id' => 'before-icon-a',
+			'name' => 'Before Icon Link',
+			'selector' => '.before-icon a',
+		));
+		$this->register_block_element(array(
+			'id' => 'before-icon-p',
+			'name' => 'Before Icon Text',
+			'selector' => '.before-icon p',
+		));
+		$this->register_block_element(array(
+			'id' => 'before-icon-span',
+			'name' => 'Before Icon Span',
+			'selector' => '.before-icon span',
+		));
+		$this->register_block_element(array(
+			'id' => 'before-icon-h1',
+			'name' => 'Before Icon H1',
+			'selector' => '.before-icon h1',
+		));
+		$this->register_block_element(array(
+			'id' => 'before-icon-h2',
+			'name' => 'Before Icon H2',
+			'selector' => '.before-icon h2',
+		));
+		$this->register_block_element(array(
+			'id' => 'before-icon-h3',
+			'name' => 'Before Icon H3',
+			'selector' => '.before-icon h3',
+		));
+		$this->register_block_element(array(
+			'id' => 'before-icon-h1',
+			'name' => 'Before Icon H1',
+			'selector' => '.before-icon h1',
+		));
+		$this->register_block_element(array(
+			'id' => 'before-icon-h4',
+			'name' => 'Before Icon H4',
+			'selector' => '.before-icon h4',
+		));
+		$this->register_block_element(array(
+			'id' => 'before-icon-h5',
+			'name' => 'Before Icon H5',
+			'selector' => '.before-icon h5',
+		));
+		$this->register_block_element(array(
+			'id' => 'before-icon-h6',
+			'name' => 'Before Icon H6',
+			'selector' => '.before-icon h6',
+		));
+		$this->register_block_element(array(
+			'id' => 'before-icon-ul',
+			'name' => 'Before Icon List',
+			'selector' => '.before-icon ul',
+		));
+		$this->register_block_element(array(
+			'id' => 'before-icon-ol',
+			'name' => 'Before Icon List',
+			'selector' => '.before-icon ol',
+		));
+		$this->register_block_element(array(
+			'id' => 'before-icon-li',
+			'name' => 'Before Icon List item',
+			'selector' => '.before-icon li',
+		));
+
+		// After icon
+		$this->register_block_element(array(
+			'id' => 'after-icon',
+			'name' => 'After Icon',
+			'selector' => '.after-icon',
+		));
+		$this->register_block_element(array(
+			'id' => 'after-icon-a',
+			'name' => 'After Icon Link',
+			'selector' => '.after-icon a',
+		));
+		$this->register_block_element(array(
+			'id' => 'after-icon-p',
+			'name' => 'After Icon Text',
+			'selector' => '.after-icon p',
+		));
+		$this->register_block_element(array(
+			'id' => 'after-icon-span',
+			'name' => 'After Icon Span',
+			'selector' => '.after-icon span',
+		));
+		$this->register_block_element(array(
+			'id' => 'after-icon-h1',
+			'name' => 'After Icon H1',
+			'selector' => '.after-icon h1',
+		));
+		$this->register_block_element(array(
+			'id' => 'after-icon-h2',
+			'name' => 'After Icon H2',
+			'selector' => '.after-icon h2',
+		));
+		$this->register_block_element(array(
+			'id' => 'after-icon-h3',
+			'name' => 'After Icon H3',
+			'selector' => '.after-icon h3',
+		));
+		$this->register_block_element(array(
+			'id' => 'after-icon-h1',
+			'name' => 'After Icon H1',
+			'selector' => '.after-icon h1',
+		));
+		$this->register_block_element(array(
+			'id' => 'after-icon-h4',
+			'name' => 'After Icon H4',
+			'selector' => '.after-icon h4',
+		));
+		$this->register_block_element(array(
+			'id' => 'after-icon-h5',
+			'name' => 'After Icon H5',
+			'selector' => '.after-icon h5',
+		));
+		$this->register_block_element(array(
+			'id' => 'after-icon-h6',
+			'name' => 'After Icon H6',
+			'selector' => '.after-icon h6',
+		));
+		$this->register_block_element(array(
+			'id' => 'after-icon-ul',
+			'name' => 'After Icon List',
+			'selector' => '.after-icon ul',
+		));
+		$this->register_block_element(array(
+			'id' => 'after-icon-ol',
+			'name' => 'After Icon List',
+			'selector' => '.after-icon ol',
+		));
+		$this->register_block_element(array(
+			'id' => 'after-icon-li',
+			'name' => 'After Icon List item',
+			'selector' => '.after-icon li',
+		));
 	}
 
 
@@ -1417,10 +1585,29 @@ class PadmaVisualElementsFontAwesomeBlock extends PadmaBlockAPI {
 	}
 	
 	public function content($block) {		
+		
 		$icon = parent::get_setting($block, 'fa-icon');
+		$before_icon = parent::get_setting($block, 'before-icon');
+		$after_icon = parent::get_setting($block, 'after-icon');
+
 		if( !empty($icon) ){
+
+			if( !empty($before_icon) ){
+				echo '<div class="before-icon">';
+				echo $before_icon;
+				echo '</div>';
+			}
+
 			$icon = explode('_', $icon);
 			echo '<i class="'.$icon[0] .' '.$icon[1].'"></i>';			
+
+			if( !empty($after_icon) ){
+				echo '<div class="after-icon">';
+				echo $after_icon;
+				echo '</div>';
+			}
+
+
 		}
 
 	}

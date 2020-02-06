@@ -125,6 +125,10 @@ class PadmaVisualElementsBlockButton extends PadmaBlockAPI {
 			'id' => 'text',
 			'name' => 'text',
 			'selector' => 'a.su-button span small',
+			'states' => array(
+				'Hover' => 'a.su-button span small:hover', 
+				'Clicked' => 'a.a.su-button span small:active'
+			)
 		));
 	}
 
