@@ -92,7 +92,9 @@ class PadmaVisualElementsBlockPostData extends PadmaBlockAPI {
 		if(!class_exists('Shortcodes_Ultimate'))
 			return false;
 
-		session_start();
+		if (session_status() == PHP_SESSION_NONE) {
+		    session_start();
+		}
 	}
 	
 	public function setup_elements() {
